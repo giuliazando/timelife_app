@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA520690F6F009D0355 /* AppDelegate.swift */; };
+		CBBC4DA820690F6F009D0355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA720690F6F009D0355 /* ViewController.swift */; };
+		CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DA920690F6F009D0355 /* Main.storyboard */; };
+		CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAC20690F6F009D0355 /* Assets.xcassets */; };
+		CBBC4DB020690F6F009D0355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */; };
+		CBBC4DBB20690F70009D0355 /* TimelifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */; };
+		CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBBC4DB720690F70009D0355 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBBC4D9A20690F6F009D0355 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBBC4DA120690F6F009D0355;
+			remoteInfo = Timelife;
+		};
+		CBBC4DC220690F70009D0355 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBBC4D9A20690F6F009D0355 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBBC4DA120690F6F009D0355;
+			remoteInfo = Timelife;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CBBC4DA220690F6F009D0355 /* Timelife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timelife.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBBC4DA520690F6F009D0355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CBBC4DA720690F6F009D0355 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBBC4DAA20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBBC4DAC20690F6F009D0355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBBC4DAF20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CBBC4DB120690F6F009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBBC4DB620690F70009D0355 /* TimelifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimelifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelifeTests.swift; sourceTree = "<group>"; };
+		CBBC4DBC20690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBBC4DC120690F70009D0355 /* TimelifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimelifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelifeUITests.swift; sourceTree = "<group>"; };
+		CBBC4DC720690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBBC4D9F20690F6F009D0355 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBBC4DB320690F70009D0355 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBBC4DBE20690F70009D0355 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBBC4D9920690F6F009D0355 = {
+			isa = PBXGroup;
+			children = (
+				CBBC4DA420690F6F009D0355 /* Timelife */,
+				CBBC4DB920690F70009D0355 /* TimelifeTests */,
+				CBBC4DC420690F70009D0355 /* TimelifeUITests */,
+				CBBC4DA320690F6F009D0355 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBBC4DA320690F6F009D0355 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBBC4DA220690F6F009D0355 /* Timelife.app */,
+				CBBC4DB620690F70009D0355 /* TimelifeTests.xctest */,
+				CBBC4DC120690F70009D0355 /* TimelifeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBBC4DA420690F6F009D0355 /* Timelife */ = {
+			isa = PBXGroup;
+			children = (
+				CBBC4DA520690F6F009D0355 /* AppDelegate.swift */,
+				CBBC4DA720690F6F009D0355 /* ViewController.swift */,
+				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
+				CBBC4DAC20690F6F009D0355 /* Assets.xcassets */,
+				CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */,
+				CBBC4DB120690F6F009D0355 /* Info.plist */,
+			);
+			path = Timelife;
+			sourceTree = "<group>";
+		};
+		CBBC4DB920690F70009D0355 /* TimelifeTests */ = {
+			isa = PBXGroup;
+			children = (
+				CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */,
+				CBBC4DBC20690F70009D0355 /* Info.plist */,
+			);
+			path = TimelifeTests;
+			sourceTree = "<group>";
+		};
+		CBBC4DC420690F70009D0355 /* TimelifeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */,
+				CBBC4DC720690F70009D0355 /* Info.plist */,
+			);
+			path = TimelifeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBBC4DA120690F6F009D0355 /* Timelife */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBBC4DCA20690F70009D0355 /* Build configuration list for PBXNativeTarget "Timelife" */;
+			buildPhases = (
+				CBBC4D9E20690F6F009D0355 /* Sources */,
+				CBBC4D9F20690F6F009D0355 /* Frameworks */,
+				CBBC4DA020690F6F009D0355 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timelife;
+			productName = Timelife;
+			productReference = CBBC4DA220690F6F009D0355 /* Timelife.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBBC4DB520690F70009D0355 /* TimelifeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBBC4DCD20690F70009D0355 /* Build configuration list for PBXNativeTarget "TimelifeTests" */;
+			buildPhases = (
+				CBBC4DB220690F70009D0355 /* Sources */,
+				CBBC4DB320690F70009D0355 /* Frameworks */,
+				CBBC4DB420690F70009D0355 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBBC4DB820690F70009D0355 /* PBXTargetDependency */,
+			);
+			name = TimelifeTests;
+			productName = TimelifeTests;
+			productReference = CBBC4DB620690F70009D0355 /* TimelifeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CBBC4DC020690F70009D0355 /* TimelifeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBBC4DD020690F70009D0355 /* Build configuration list for PBXNativeTarget "TimelifeUITests" */;
+			buildPhases = (
+				CBBC4DBD20690F70009D0355 /* Sources */,
+				CBBC4DBE20690F70009D0355 /* Frameworks */,
+				CBBC4DBF20690F70009D0355 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBBC4DC320690F70009D0355 /* PBXTargetDependency */,
+			);
+			name = TimelifeUITests;
+			productName = TimelifeUITests;
+			productReference = CBBC4DC120690F70009D0355 /* TimelifeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBBC4D9A20690F6F009D0355 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Giulia Zandonà";
+				TargetAttributes = {
+					CBBC4DA120690F6F009D0355 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CBBC4DB520690F70009D0355 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CBBC4DA120690F6F009D0355;
+					};
+					CBBC4DC020690F70009D0355 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CBBC4DA120690F6F009D0355;
+					};
+				};
+			};
+			buildConfigurationList = CBBC4D9D20690F6F009D0355 /* Build configuration list for PBXProject "Timelife" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBBC4D9920690F6F009D0355;
+			productRefGroup = CBBC4DA320690F6F009D0355 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBBC4DA120690F6F009D0355 /* Timelife */,
+				CBBC4DB520690F70009D0355 /* TimelifeTests */,
+				CBBC4DC020690F70009D0355 /* TimelifeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBBC4DA020690F6F009D0355 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBBC4DB020690F6F009D0355 /* LaunchScreen.storyboard in Resources */,
+				CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */,
+				CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBBC4DB420690F70009D0355 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBBC4DBF20690F70009D0355 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBBC4D9E20690F6F009D0355 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBBC4DA820690F6F009D0355 /* ViewController.swift in Sources */,
+				CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBBC4DB220690F70009D0355 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBBC4DBB20690F70009D0355 /* TimelifeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBBC4DBD20690F70009D0355 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBBC4DB820690F70009D0355 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBBC4DA120690F6F009D0355 /* Timelife */;
+			targetProxy = CBBC4DB720690F70009D0355 /* PBXContainerItemProxy */;
+		};
+		CBBC4DC320690F70009D0355 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBBC4DA120690F6F009D0355 /* Timelife */;
+			targetProxy = CBBC4DC220690F70009D0355 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CBBC4DA920690F6F009D0355 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBBC4DAA20690F6F009D0355 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBBC4DAF20690F6F009D0355 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBBC4DC820690F70009D0355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CBBC4DC920690F70009D0355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBBC4DCB20690F70009D0355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q6TEABS8Q4;
+				INFOPLIST_FILE = Timelife/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personalTeam.Timelife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBBC4DCC20690F70009D0355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q6TEABS8Q4;
+				INFOPLIST_FILE = Timelife/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personalTeam.Timelife;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBBC4DCE20690F70009D0355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q6TEABS8Q4;
+				INFOPLIST_FILE = TimelifeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personalTeam.TimelifeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timelife.app/Timelife";
+			};
+			name = Debug;
+		};
+		CBBC4DCF20690F70009D0355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q6TEABS8Q4;
+				INFOPLIST_FILE = TimelifeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personalTeam.TimelifeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timelife.app/Timelife";
+			};
+			name = Release;
+		};
+		CBBC4DD120690F70009D0355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q6TEABS8Q4;
+				INFOPLIST_FILE = TimelifeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personalTeam.TimelifeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Timelife;
+			};
+			name = Debug;
+		};
+		CBBC4DD220690F70009D0355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q6TEABS8Q4;
+				INFOPLIST_FILE = TimelifeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personalTeam.TimelifeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Timelife;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBBC4D9D20690F6F009D0355 /* Build configuration list for PBXProject "Timelife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBBC4DC820690F70009D0355 /* Debug */,
+				CBBC4DC920690F70009D0355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBBC4DCA20690F70009D0355 /* Build configuration list for PBXNativeTarget "Timelife" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBBC4DCB20690F70009D0355 /* Debug */,
+				CBBC4DCC20690F70009D0355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBBC4DCD20690F70009D0355 /* Build configuration list for PBXNativeTarget "TimelifeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBBC4DCE20690F70009D0355 /* Debug */,
+				CBBC4DCF20690F70009D0355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBBC4DD020690F70009D0355 /* Build configuration list for PBXNativeTarget "TimelifeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBBC4DD120690F70009D0355 /* Debug */,
+				CBBC4DD220690F70009D0355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBBC4D9A20690F6F009D0355 /* Project object */;
+}
