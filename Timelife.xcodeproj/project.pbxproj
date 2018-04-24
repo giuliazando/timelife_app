@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB000960206A3CF000B00C29 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00095F206A3CF000B00C29 /* InterestViewController.swift */; };
+		CB000962206A6CEE00B00C29 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB000961206A6CEE00B00C29 /* Interest.swift */; };
+		CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45B126207F58F700379FD1 /* ThirdViewController.swift */; };
+		CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */; };
 		CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA520690F6F009D0355 /* AppDelegate.swift */; };
-		CBBC4DA820690F6F009D0355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA720690F6F009D0355 /* ViewController.swift */; };
 		CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DA920690F6F009D0355 /* Main.storyboard */; };
 		CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAC20690F6F009D0355 /* Assets.xcassets */; };
 		CBBC4DB020690F6F009D0355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */; };
 		CBBC4DBB20690F70009D0355 /* TimelifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */; };
 		CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */; };
+		CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DD320690FAD009D0355 /* PhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB00095F206A3CF000B00C29 /* InterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
+		CB000961206A6CEE00B00C29 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		CB45B126207F58F700379FD1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CBBC4DA220690F6F009D0355 /* Timelife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timelife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBC4DA520690F6F009D0355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBBC4DA720690F6F009D0355 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CBBC4DAA20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBBC4DAC20690F6F009D0355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBBC4DAF20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,7 @@
 		CBBC4DC120690F70009D0355 /* TimelifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimelifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelifeUITests.swift; sourceTree = "<group>"; };
 		CBBC4DC720690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBBC4DD320690FAD009D0355 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				CBBC4DA520690F6F009D0355 /* AppDelegate.swift */,
-				CBBC4DA720690F6F009D0355 /* ViewController.swift */,
+				CB00095F206A3CF000B00C29 /* InterestViewController.swift */,
+				CB000961206A6CEE00B00C29 /* Interest.swift */,
+				CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */,
+				CBBC4DD320690FAD009D0355 /* PhotoView.swift */,
+				CB45B126207F58F700379FD1 /* ThirdViewController.swift */,
 				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
 				CBBC4DAC20690F6F009D0355 /* Assets.xcassets */,
 				CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */,
@@ -259,7 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBBC4DA820690F6F009D0355 /* ViewController.swift in Sources */,
+				CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */,
+				CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */,
+				CB000962206A6CEE00B00C29 /* Interest.swift in Sources */,
+				CB000960206A3CF000B00C29 /* InterestViewController.swift in Sources */,
+				CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */,
 				CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
