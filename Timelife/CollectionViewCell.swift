@@ -27,7 +27,7 @@ class CollectionViewCell: UICollectionViewCell {
         if let interest = interest {
             ImageView.image = interest.ImageView
             BackgroundColorView.backgroundColor = interest.color
-            //MonthDay.text = interest.title
+            MonthDay.text = interest.day
             //MonthName.text = interest.title
         } else {
             ImageView.image = nil
@@ -48,6 +48,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         self.clipsToBounds = false
     }
+    
     
    @IBOutlet weak var image: UIImageView!
    @IBOutlet weak var photoTitle: UILabel!

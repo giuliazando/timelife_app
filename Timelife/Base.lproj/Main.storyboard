@@ -122,7 +122,7 @@
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X01-ZD-z1h">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X01-ZD-z1h" customClass="UIBotton">
                                 <rect key="frame" x="16" y="20" width="48" height="30"/>
                                 <state key="normal" title="&lt; Back"/>
                                 <connections>
@@ -134,6 +134,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="231" id="tgf-gO-dJn"/>
                                 </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSf-Na-akN">
+                                <rect key="frame" x="313" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Salva"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,6 +175,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="627-iJ-FmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1496.8" y="132.68365817091455"/>
+        </scene>
+        <!--Date View Controller-->
+        <scene sceneID="mQg-nr-waa">
+            <objects>
+                <viewController id="vXS-Ie-Dau" customClass="DateViewController" customModule="Timelife" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZEd-We-mlc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w2Q-yo-cPG">
+                                <rect key="frame" x="27" y="132" width="320" height="240"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scegli una data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohO-3i-kRI">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1l8-1A-upq">
+                                        <rect key="frame" x="0.0" y="24" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="546773189.34509802">
+                                            <!--2018-04-30 09:26:29 +0000-->
+                                        </date>
+                                        <date key="minimumDate" timeIntervalSinceReferenceDate="-978181200">
+                                            <!--1970-01-02 11:00:00 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="it_IT"/>
+                                        <connections>
+                                            <action selector="pickerDataAction:" destination="vXS-Ie-Dau" eventType="valueChanged" id="2x4-gl-8hc"/>
+                                            <action selector="selectDate:" destination="EtB-Gm-QQi" eventType="valueChanged" id="Wmx-dM-u2l"/>
+                                        </connections>
+                                    </datePicker>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1l8-1A-upq" firstAttribute="top" secondItem="ohO-3i-kRI" secondAttribute="bottom" id="4ZW-2c-jbc"/>
+                                    <constraint firstAttribute="trailing" secondItem="1l8-1A-upq" secondAttribute="trailing" id="714-0U-2GS"/>
+                                    <constraint firstAttribute="bottom" secondItem="1l8-1A-upq" secondAttribute="bottom" id="Zfw-mD-HPq"/>
+                                    <constraint firstItem="1l8-1A-upq" firstAttribute="leading" secondItem="w2Q-yo-cPG" secondAttribute="leading" id="bXh-iI-Z6r"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sml-8A-AwB">
+                                <rect key="frame" x="164" y="408" width="46" height="30"/>
+                                <state key="normal" title="Salva"/>
+                                <connections>
+                                    <action selector="saveDate:" destination="EtB-Gm-QQi" eventType="touchUpInside" id="h4K-f3-bem"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8q-pc-fKF">
+                                <rect key="frame" x="16" y="20" width="77" height="30"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <action selector="backDate:" destination="vXS-Ie-Dau" eventType="touchUpInside" id="v7I-rc-hq0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n9l-i9-Luq" firstAttribute="trailing" secondItem="F8q-pc-fKF" secondAttribute="trailing" constant="282" id="9kP-Zh-DNN"/>
+                            <constraint firstItem="w2Q-yo-cPG" firstAttribute="centerX" secondItem="Sml-8A-AwB" secondAttribute="centerX" id="DtX-jO-RNd"/>
+                            <constraint firstItem="Sml-8A-AwB" firstAttribute="leading" secondItem="n9l-i9-Luq" secondAttribute="leading" constant="164" id="GjU-q1-BEI"/>
+                            <constraint firstItem="n9l-i9-Luq" firstAttribute="bottom" secondItem="Sml-8A-AwB" secondAttribute="bottom" constant="229" id="ScQ-i9-b0v"/>
+                            <constraint firstItem="w2Q-yo-cPG" firstAttribute="centerX" secondItem="ZEd-We-mlc" secondAttribute="centerX" id="VK1-Cr-1J2"/>
+                            <constraint firstItem="Sml-8A-AwB" firstAttribute="top" secondItem="w2Q-yo-cPG" secondAttribute="bottom" constant="36" id="XXz-Ai-K9I"/>
+                            <constraint firstItem="F8q-pc-fKF" firstAttribute="leading" secondItem="n9l-i9-Luq" secondAttribute="leading" constant="16" id="bM8-Sx-b32"/>
+                            <constraint firstItem="F8q-pc-fKF" firstAttribute="top" secondItem="n9l-i9-Luq" secondAttribute="top" id="f31-XY-c0H"/>
+                            <constraint firstItem="n9l-i9-Luq" firstAttribute="trailing" secondItem="Sml-8A-AwB" secondAttribute="trailing" constant="165" id="h83-Hr-rXp"/>
+                            <constraint firstItem="w2Q-yo-cPG" firstAttribute="top" secondItem="F8q-pc-fKF" secondAttribute="bottom" constant="82" id="oUa-bS-2l0"/>
+                            <constraint firstItem="Sml-8A-AwB" firstAttribute="top" secondItem="w2Q-yo-cPG" secondAttribute="bottom" constant="36" id="uMQ-qj-dqR"/>
+                            <constraint firstItem="w2Q-yo-cPG" firstAttribute="top" secondItem="n9l-i9-Luq" secondAttribute="top" constant="112" id="wEh-O7-LYB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n9l-i9-Luq"/>
+                    </view>
+                    <connections>
+                        <outlet property="dataText" destination="ohO-3i-kRI" id="cfN-0D-kae"/>
+                        <outlet property="saveDate" destination="Sml-8A-AwB" id="MeS-71-Y6Q"/>
+                        <outlet property="selectDate" destination="1l8-1A-upq" id="mSx-s7-Nsb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yK7-Aw-fCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EtB-Gm-QQi" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2584.8000000000002" y="132.68365817091455"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0fq-zW-W0k">
@@ -316,7 +403,7 @@
                                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hm-ga-wpb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hm-ga-wpb" customClass="UILable">
                                                             <rect key="frame" x="22" y="31" width="16.5" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

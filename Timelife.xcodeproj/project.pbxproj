@@ -11,6 +11,7 @@
 		CB000962206A6CEE00B00C29 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB000961206A6CEE00B00C29 /* Interest.swift */; };
 		CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45B126207F58F700379FD1 /* ThirdViewController.swift */; };
 		CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */; };
+		CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF84CC20971A3400A07B0B /* DateViewController.swift */; };
 		CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA520690F6F009D0355 /* AppDelegate.swift */; };
 		CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DA920690F6F009D0355 /* Main.storyboard */; };
 		CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAC20690F6F009D0355 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		CB000961206A6CEE00B00C29 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		CB45B126207F58F700379FD1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CBAF84CC20971A3400A07B0B /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		CBBC4DA220690F6F009D0355 /* Timelife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timelife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBC4DA520690F6F009D0355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBBC4DAA20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				CBBC4DA520690F6F009D0355 /* AppDelegate.swift */,
 				CB00095F206A3CF000B00C29 /* InterestViewController.swift */,
+				CBAF84CC20971A3400A07B0B /* DateViewController.swift */,
 				CB000961206A6CEE00B00C29 /* Interest.swift */,
 				CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */,
 				CBBC4DD320690FAD009D0355 /* PhotoView.swift */,
@@ -273,6 +276,7 @@
 			files = (
 				CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */,
 				CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */,
+				CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */,
 				CB000962206A6CEE00B00C29 /* Interest.swift in Sources */,
 				CB000960206A3CF000B00C29 /* InterestViewController.swift in Sources */,
 				CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */,
