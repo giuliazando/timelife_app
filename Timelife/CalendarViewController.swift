@@ -8,28 +8,82 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+
+    @IBOutlet weak var calendar: UICollectionView!
+    @IBOutlet weak var monthLabel: UILabel!
+    
+
+    
+    let months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+    
+    let daysOfMonth = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"]
+    
+    var daysInMonths = [31,28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    var currentMonth = String()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        currentMonth = months[month]
+        
+        monthLabel.text = "\(currentMonth) \(year)"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func next(_ sender: Any) {
+        switch currentMonth {
+        case "Dicembre":
+            month = 0
+            year += 1
+            
+            currentMonth = months[month]
+            monthLabel.text = "\(currentMonth) \(year)"
+            calendar.reloadData()
+        default:
+            month += 1
+            
+            currentMonth = months[month]
+            monthLabel.text = "\(currentMonth) \(year)"
+            calendar.reloadData()
+        }
     }
-    */
-
+    
+    @IBAction func previous(_ sender: Any) {
+        switch currentMonth {
+        case "Gennaio":
+            month = 11
+            year -= 1
+            
+            currentMonth = months[month]
+            monthLabel.text = "\(currentMonth) \(year)"
+            calendar.reloadData()
+        default:
+            month -= 1
+            
+            currentMonth = months[month]
+            monthLabel.text = "\(currentMonth) \(year)"
+            calendar.reloadData()
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return daysInMonths[month]
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let calendarCell = collectionView.dequeueReusableCell(withReuseIdentifier:"Calendar", for: indexPath) as! DateCollectionViewCell
+    
+        calendarCell.backgroundColor = UIColor.clear
+        calendarCell.dateLabel.text = "\(indexPath.row + 1)"
+        return calendarCell
+    }
+    @IBAction func backToCarosell(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
 }
+

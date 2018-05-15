@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
+//import Alamofire
+//import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
@@ -17,8 +17,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var addPassword: UITextField!
 
 
+    @IBAction func backToLog(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func loginButton(_ sender: Any) {
- /*       Alamofire.request("https://api.openweathermap.org/data/2.5/weather?q=\(writeCity.text!)&APPID=45d9dc59e6c3becff84ddabc49e9d9ec")  .responseJSON { response in
+        /*Alamofire.request("https://api.openweathermap.org/data/2.5/weather?q=\(writeCity.text!)&APPID=45d9dc59e6c3becff84ddabc49e9d9ec")  .responseJSON { response in
             print(response.request as Any)  // original URL request
             print(response.response as Any) // URL response
             //print(response.result.value as Any)   // result of response serialization

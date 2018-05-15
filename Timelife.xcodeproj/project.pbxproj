@@ -12,8 +12,11 @@
 		CB000962206A6CEE00B00C29 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB000961206A6CEE00B00C29 /* Interest.swift */; };
 		CB13D4A620A0796C00DD89CA /* Avenue du Vapoteur.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */; };
 		CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45B126207F58F700379FD1 /* ThirdViewController.swift */; };
+		CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */; };
 		CB605C332099DFD200C920FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB605C322099DFD200C920FC /* LoginViewController.swift */; };
 		CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */; };
+		CBA3C26D20A1A16F0002A728 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */; };
+		CBA3C27120A1CBE90002A728 /* CalendarVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3C27020A1CBE90002A728 /* CalendarVar.swift */; };
 		CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF84CC20971A3400A07B0B /* DateViewController.swift */; };
 		CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA520690F6F009D0355 /* AppDelegate.swift */; };
 		CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DA920690F6F009D0355 /* Main.storyboard */; };
@@ -50,8 +53,11 @@
 		CB000961206A6CEE00B00C29 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenue du Vapoteur.ttf"; sourceTree = SOURCE_ROOT; };
 		CB45B126207F58F700379FD1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CB605C322099DFD200C920FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBA3C27020A1CBE90002A728 /* CalendarVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVar.swift; sourceTree = "<group>"; };
 		CBAF84CC20971A3400A07B0B /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		CBBC4DA220690F6F009D0355 /* Timelife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timelife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBC4DA520690F6F009D0355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,16 +145,19 @@
 			children = (
 				CBBC4DA520690F6F009D0355 /* AppDelegate.swift */,
 				CB605C322099DFD200C920FC /* LoginViewController.swift */,
+				CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */,
 				CB00095F206A3CF000B00C29 /* InterestViewController.swift */,
 				CBD8E4A8209C5B29009D5FD8 /* CalendarViewController.swift */,
+				CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */,
+				CBA3C27020A1CBE90002A728 /* CalendarVar.swift */,
 				CBAF84CC20971A3400A07B0B /* DateViewController.swift */,
 				CB000961206A6CEE00B00C29 /* Interest.swift */,
 				CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */,
 				CBBC4DD320690FAD009D0355 /* PhotoView.swift */,
 				CB45B126207F58F700379FD1 /* ThirdViewController.swift */,
 				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
-				CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */,
 				CBBC4DAC20690F6F009D0355 /* Assets.xcassets */,
+				CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */,
 				CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */,
 				CBBC4DB120690F6F009D0355 /* Info.plist */,
 			);
@@ -239,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Giulia Zandonà";
 				TargetAttributes = {
 					CBBC4DA120690F6F009D0355 = {
@@ -370,9 +379,12 @@
 				CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */,
 				CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */,
 				CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */,
+				CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */,
 				CB000962206A6CEE00B00C29 /* Interest.swift in Sources */,
+				CBA3C26D20A1A16F0002A728 /* DateCollectionViewCell.swift in Sources */,
 				CB605C332099DFD200C920FC /* LoginViewController.swift in Sources */,
 				CB000960206A3CF000B00C29 /* InterestViewController.swift in Sources */,
+				CBA3C27120A1CBE90002A728 /* CalendarVar.swift in Sources */,
 				CBD8E4A9209C5B29009D5FD8 /* CalendarViewController.swift in Sources */,
 				CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */,
 				CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */,
@@ -444,6 +456,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -451,6 +464,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -501,6 +515,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -508,6 +523,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
