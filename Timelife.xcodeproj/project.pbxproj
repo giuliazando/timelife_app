@@ -14,7 +14,7 @@
 		CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45B126207F58F700379FD1 /* ThirdViewController.swift */; };
 		CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */; };
 		CB605C332099DFD200C920FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB605C322099DFD200C920FC /* LoginViewController.swift */; };
-		CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */; };
+		CB8BDB8820AD79E80095B67F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */; };
 		CBA3C26D20A1A16F0002A728 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */; };
 		CBA3C27120A1CBE90002A728 /* CalendarVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3C27020A1CBE90002A728 /* CalendarVar.swift */; };
 		CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF84CC20971A3400A07B0B /* DateViewController.swift */; };
@@ -55,7 +55,7 @@
 		CB45B126207F58F700379FD1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CB605C322099DFD200C920FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ../../../../../../CollectionViewCell.swift; sourceTree = "<group>"; };
 		CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBA3C27020A1CBE90002A728 /* CalendarVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVar.swift; sourceTree = "<group>"; };
 		CBAF84CC20971A3400A07B0B /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				CBA3C27020A1CBE90002A728 /* CalendarVar.swift */,
 				CBAF84CC20971A3400A07B0B /* DateViewController.swift */,
 				CB000961206A6CEE00B00C29 /* Interest.swift */,
-				CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */,
+				CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */,
 				CBBC4DD320690FAD009D0355 /* PhotoView.swift */,
 				CB45B126207F58F700379FD1 /* ThirdViewController.swift */,
 				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
@@ -377,8 +377,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */,
-				CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */,
 				CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */,
+				CB8BDB8820AD79E80095B67F /* CollectionViewCell.swift in Sources */,
 				CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */,
 				CB000962206A6CEE00B00C29 /* Interest.swift in Sources */,
 				CBA3C26D20A1A16F0002A728 /* DateCollectionViewCell.swift in Sources */,
@@ -492,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -545,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

@@ -9,10 +9,10 @@
 import Foundation
 
 let date = Date()
-let calendar = Calendar.current
-let day = calendar.component(.day, from: date)
-let weekend = calendar.component(.weekday, from: date)
-var month = calendar.component(.month, from: date)
-var year = calendar.component(.year, from: date)
+let calendario = Calendar.current
+let day = calendario.component(.day, from: date)
+let weekday = calendario.component(.weekday, from: date)
+var month = calendario.component(.month, from: date)
+var year = calendario.component(.year, from: date)
 
 

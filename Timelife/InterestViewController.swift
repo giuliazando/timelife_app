@@ -21,10 +21,10 @@ class FirstViewController: UIViewController
         
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScaling)
-        let cellHeight = floor (screenSize.height * cellScaling)
+        let cellHeight = floor(screenSize.height * cellScaling)
         
         let insetX = (view.bounds.width - cellWidth) / 10.0
-        let insetY = (view.bounds.height - cellHeight) / 1.0
+        let insetY = (view.bounds.height - cellHeight) / 10.0
         
         
         let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
@@ -48,12 +48,10 @@ extension FirstViewController : UICollectionViewDataSource
         return interest.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCell", for: indexPath) as! CollectionViewCell
         cell.interest = interest[indexPath.item]
         return cell
-        
     }
     
    //ciò che stampa se clicco sulla cella
