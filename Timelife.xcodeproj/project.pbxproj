@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		108B24B51457DC9A9AA3B0AE /* Pods_Timelife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D2E9A1EDC0AFDF5F9ED84 /* Pods_Timelife.framework */; };
 		CB000960206A3CF000B00C29 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00095F206A3CF000B00C29 /* InterestViewController.swift */; };
 		CB000962206A6CEE00B00C29 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB000961206A6CEE00B00C29 /* Interest.swift */; };
+		CB13D4A620A0796C00DD89CA /* Avenue du Vapoteur.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */; };
 		CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45B126207F58F700379FD1 /* ThirdViewController.swift */; };
-		CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */; };
+		CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */; };
+		CB605C332099DFD200C920FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB605C322099DFD200C920FC /* LoginViewController.swift */; };
+		CB8BDB8820AD79E80095B67F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */; };
+		CBA3C26D20A1A16F0002A728 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */; };
+		CBA3C27120A1CBE90002A728 /* CalendarVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA3C27020A1CBE90002A728 /* CalendarVar.swift */; };
+		CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF84CC20971A3400A07B0B /* DateViewController.swift */; };
 		CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA520690F6F009D0355 /* AppDelegate.swift */; };
 		CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DA920690F6F009D0355 /* Main.storyboard */; };
 		CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAC20690F6F009D0355 /* Assets.xcassets */; };
@@ -18,6 +25,7 @@
 		CBBC4DBB20690F70009D0355 /* TimelifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */; };
 		CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */; };
 		CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DD320690FAD009D0355 /* PhotoView.swift */; };
+		CBD8E4A9209C5B29009D5FD8 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD8E4A8209C5B29009D5FD8 /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +46,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011BE155B0C3289DD8CE396C /* Pods-Timelife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timelife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Timelife/Pods-Timelife.debug.xcconfig"; sourceTree = "<group>"; };
+		7C7D2E9A1EDC0AFDF5F9ED84 /* Pods_Timelife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timelife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD584384A526A0DA6D4E766D /* Pods-Timelife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timelife.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timelife/Pods-Timelife.release.xcconfig"; sourceTree = "<group>"; };
 		CB00095F206A3CF000B00C29 /* InterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
 		CB000961206A6CEE00B00C29 /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenue du Vapoteur.ttf"; sourceTree = SOURCE_ROOT; };
 		CB45B126207F58F700379FD1 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CB605C322099DFD200C920FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = ../../../../../../CollectionViewCell.swift; sourceTree = "<group>"; };
+		CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBA3C27020A1CBE90002A728 /* CalendarVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVar.swift; sourceTree = "<group>"; };
+		CBAF84CC20971A3400A07B0B /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		CBBC4DA220690F6F009D0355 /* Timelife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timelife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBC4DA520690F6F009D0355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBBC4DAA20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +72,7 @@
 		CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelifeUITests.swift; sourceTree = "<group>"; };
 		CBBC4DC720690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBBC4DD320690FAD009D0355 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		CBD8E4A8209C5B29009D5FD8 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				108B24B51457DC9A9AA3B0AE /* Pods_Timelife.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +101,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5DE7E48ACF87DD8940DE78A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				011BE155B0C3289DD8CE396C /* Pods-Timelife.debug.xcconfig */,
+				BD584384A526A0DA6D4E766D /* Pods-Timelife.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9603728244A3497C29A52F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C7D2E9A1EDC0AFDF5F9ED84 /* Pods_Timelife.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CBBC4D9920690F6F009D0355 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +125,8 @@
 				CBBC4DB920690F70009D0355 /* TimelifeTests */,
 				CBBC4DC420690F70009D0355 /* TimelifeUITests */,
 				CBBC4DA320690F6F009D0355 /* Products */,
+				A5DE7E48ACF87DD8940DE78A /* Pods */,
+				A9603728244A3497C29A52F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,13 +144,20 @@
 			isa = PBXGroup;
 			children = (
 				CBBC4DA520690F6F009D0355 /* AppDelegate.swift */,
+				CB605C322099DFD200C920FC /* LoginViewController.swift */,
+				CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */,
 				CB00095F206A3CF000B00C29 /* InterestViewController.swift */,
+				CBD8E4A8209C5B29009D5FD8 /* CalendarViewController.swift */,
+				CBA3C26C20A1A16F0002A728 /* DateCollectionViewCell.swift */,
+				CBA3C27020A1CBE90002A728 /* CalendarVar.swift */,
+				CBAF84CC20971A3400A07B0B /* DateViewController.swift */,
 				CB000961206A6CEE00B00C29 /* Interest.swift */,
-				CB97A48A2069A8ED0043D2EF /* CollectionViewCell.swift */,
+				CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */,
 				CBBC4DD320690FAD009D0355 /* PhotoView.swift */,
 				CB45B126207F58F700379FD1 /* ThirdViewController.swift */,
 				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
 				CBBC4DAC20690F6F009D0355 /* Assets.xcassets */,
+				CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */,
 				CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */,
 				CBBC4DB120690F6F009D0355 /* Info.plist */,
 			);
@@ -144,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBBC4DCA20690F70009D0355 /* Build configuration list for PBXNativeTarget "Timelife" */;
 			buildPhases = (
+				CCAD7240A18BF548B775CBFE /* [CP] Check Pods Manifest.lock */,
 				CBBC4D9E20690F6F009D0355 /* Sources */,
 				CBBC4D9F20690F6F009D0355 /* Frameworks */,
 				CBBC4DA020690F6F009D0355 /* Resources */,
+				CC0F908B677F7B127DAA5ECD /* [CP] Embed Pods Frameworks */,
+				392AD0A5C433F2EF0B8CC2BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Giulia Zandonà";
 				TargetAttributes = {
 					CBBC4DA120690F6F009D0355 = {
@@ -245,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBBC4DB020690F6F009D0355 /* LaunchScreen.storyboard in Resources */,
+				CB13D4A620A0796C00DD89CA /* Avenue du Vapoteur.ttf in Resources */,
 				CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */,
 				CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */,
 			);
@@ -266,15 +315,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		392AD0A5C433F2EF0B8CC2BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Timelife/Pods-Timelife-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC0F908B677F7B127DAA5ECD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Timelife/Pods-Timelife-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Timelife/Pods-Timelife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCAD7240A18BF548B775CBFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Timelife-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CBBC4D9E20690F6F009D0355 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */,
-				CB97A48B2069A8ED0043D2EF /* CollectionViewCell.swift in Sources */,
+				CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */,
+				CB8BDB8820AD79E80095B67F /* CollectionViewCell.swift in Sources */,
+				CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */,
 				CB000962206A6CEE00B00C29 /* Interest.swift in Sources */,
+				CBA3C26D20A1A16F0002A728 /* DateCollectionViewCell.swift in Sources */,
+				CB605C332099DFD200C920FC /* LoginViewController.swift in Sources */,
 				CB000960206A3CF000B00C29 /* InterestViewController.swift in Sources */,
+				CBA3C27120A1CBE90002A728 /* CalendarVar.swift in Sources */,
+				CBD8E4A9209C5B29009D5FD8 /* CalendarViewController.swift in Sources */,
 				CB45B127207F58F700379FD1 /* ThirdViewController.swift in Sources */,
 				CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */,
 			);
@@ -345,6 +456,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -352,6 +464,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -379,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -402,6 +515,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -409,6 +523,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -430,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -440,6 +555,7 @@
 		};
 		CBBC4DCB20690F70009D0355 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 011BE155B0C3289DD8CE396C /* Pods-Timelife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -455,6 +571,7 @@
 		};
 		CBBC4DCC20690F70009D0355 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD584384A526A0DA6D4E766D /* Pods-Timelife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

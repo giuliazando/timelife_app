@@ -32,8 +32,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     {
         chooseImage.addTarget(self, action: #selector(ThirdViewController.displayImagePickerButtonTapped(_:)), for: .touchUpInside)
         self.view.addSubview(chooseImage)
-        //addImage.layer.cornerRadius = 10
-        //addImage.clipsToBounds = true
+      
         
     }
     @objc func displayImagePickerButtonTapped(_ sender:UIButton!) {
