@@ -10,63 +10,39 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController  {
+
+    
     
     @IBOutlet weak var addEmail: UITextField!
     
     @IBOutlet weak var addPassword: UITextField!
-
-    private static var manager: Alamofire.SessionManager = {
-        
-        // Create the server trust policies
-        let serverTrustPolicies: [String: ServerTrustPolicy] = [
-            "timelife.test": .disableEvaluation
-        ]
-        
-        // Create custom manager
-        let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-        let manager = Alamofire.SessionManager(
-            configuration: URLSessionConfiguration.default,
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-        )
-        
-        return manager
-    }()
     
+    let loginJson = jsonManager()
+
 
     @IBAction func backToLog(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func loginButton(_ sender: Any) {
-        LoginViewController.manager.request("https://timelife.test/api/media").responseJSON { response in
-            print(response.request as Any)  // original URL request
+        loginJson.manager.request("https://timelifeweb.test/api/user").responseJSON { response in
+            /*print(response.request as Any)  // original URL request
             print(response.response as Any) // URL response
             print(response.result.value as Any)   // result of response serialization
+            */
             let data = response.result.value
             let json = JSON(data!)
-            print(json["data"])
+            print(json)
+            print(json.count)
             
-//            let city = "\(json["name"])"
-//            self.cityLabel.text = city
-//            let gradi  = "Gradi: " + "\(json["main"]["temp"])" + "F°"
-//            self.gradiLabel.text = gradi
-//            let meteo  = "Il tempo è: " + "\(json["weather"][0]["description"])" // 0 sta per la tonda
-//            self.meteoLabel.text = meteo
-//            let country = "\(json["sys"]["country"])"
-//            self.countryLabel.text = country 
+            
+            for i in 0..<json["data"].count {
+                print("\(json["data"][i]["id"])")
+            }
         }
     }
     
-   
-    /*func isValidEmail(addEmail:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: addEmail)
-    }*/
-    
-  
     override func viewDidLoad() {
         super.viewDidLoad()
      

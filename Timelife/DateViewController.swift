@@ -21,20 +21,22 @@ class DateViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func pickerDataAction(_ sender: Any) {
+        scomponiDate()
+    }
     
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let view = segue.destination as! ThirdViewController
+        view.date = self.dataText.text!
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let currentDate: NSDate = NSDate() //variabile data di oggi e dico che è una data
+        selectDate.maximumDate = currentDate as Date //qui dico che la data massima deve essere la data di oggi
         dataText.text = "\(selectDate.date)"
     }
-
-    @IBAction func pickerDataAction(_ sender: Any) {
-        scomponiDate()
-
-    }
-    
 
     
     func scomponiDate() {
@@ -59,7 +61,6 @@ class DateViewController: UIViewController {
         print("Il giorno d'oggi è \(giornodelmese!), il mese \(mesedellanno!) e l'anno \(anno!)")
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

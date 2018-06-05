@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -14,25 +15,72 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var addTitle: UITextField!
     @IBOutlet weak var addStory: UITextView!
     @IBOutlet weak var chooseImage: UIButton!
+    @IBOutlet weak var goodButton: UIButton!
+    @IBOutlet weak var loveButton: UIButton!
+    @IBOutlet weak var badButton: UIButton!
+    
+    
+    @IBAction func goodButton(_ sender: Any) {
+        loveButton.alpha = 0.3
+        badButton.alpha = 0.3
+        goodButton.alpha = 1
+    }
+    
+    @IBAction func lovebutton(_ sender: Any) {
+        goodButton.alpha = 0.3
+        badButton.alpha = 0.3
+        loveButton.alpha = 1
+    }
+    
+    @IBAction func badButton(_ sender: Any) {
+        loveButton.alpha = 0.3
+        goodButton.alpha = 0.3
+        badButton.alpha = 1
+    }
     
     @IBAction func backSecond(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-  
+    
+    var saveTitle: String?
+    var saveStory: String?
+    
+    
+    @IBAction func saveDiaryDay(_ sender: Any) {
+        saveTitle = addTitle.text
+        print("sto salvando")
+        print(saveTitle!)
+        
+        saveStory = addStory.text
+        print("sto salvando il testo")
+        print(saveStory!)
+        
+        sendMedia()
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+    }
+    
+    var date = ""
+    
+    let ThirdJson = jsonManager()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("cacca")
+        print(date)
+        
         // Do any additional setup after loading the view.
         
         setupImagePickerButton()
-
+        
     }
     
     func setupImagePickerButton()
     {
         chooseImage.addTarget(self, action: #selector(ThirdViewController.displayImagePickerButtonTapped(_:)), for: .touchUpInside)
         self.view.addSubview(chooseImage)
-      
+        
         
     }
     @objc func displayImagePickerButtonTapped(_ sender:UIButton!) {
@@ -53,10 +101,49 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func sendMedia() {
+        /*
+         id_user: 2
+         id_calendar: 20
+         mood: love
+         title: voglio morire
+         body: jjòjkjijoiio
+         type: photo
+         mediaUrl :https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg
+         */
+        print(self.date)
+        
+        let parameters : Parameters = [
+            "id_user" : 2,
+            "id_calendar": 20,
+            "mood": "love",
+            "title": self.saveTitle!,
+            "body": self.saveStory!,
+            "type": "photo",
+            "date": "\(self.date)",
+            "mediaUrl" : "https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg"
+        ]
+        
+        let urlString = "https://timelifeweb.test/api/media"
+        
+        ThirdJson.manager.request(urlString, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
+            response in
+            print(response)
+            switch response.result {
+            case .success:
+                print(response)
+                print("ho inviato qualcosa al server")
+                break
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
 }

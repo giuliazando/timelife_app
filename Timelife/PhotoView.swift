@@ -7,29 +7,58 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let photoTitle = ["Neve!", "Finalmente sole", "Giorno no"]
+    let viewJson = jsonManager()
     
+    @IBOutlet weak var photoTitle: UILabel!
+    @IBOutlet weak var photoText: UILabel!
+    @IBOutlet weak var photoCollectionView: UICollectionView!
+  
+    var photoTitle2 = Array<String>()
+    var photoText2 = Array<String>()
+
     let image = [UIImage(named: "vacanze-invernali"), UIImage(named: "prendere-il-sole"), UIImage(named: "vaso-rotto")]
-    
-    let photoText = ["Oggi abbiamo passato una bellissima giornata in motagna", "blabla", "blablabla"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewJson.manager.request("http://timelifeweb.test/api/media/2").responseJSON{response in
+            print(response.request as Any)
+            print(response.response as Any)
+            
+            let data = response.result.value
+            let json = JSON(data!)
+            print(json["data"])
+            print(data)
+            
+            let title = "\(json["data"]["title"])"
+            print(title)
+            self.photoTitle2.append(title)
+            self.photoCollectionView.reloadData()
+            print(self.photoTitle2)
+            
+            let body  = "\(json["data"]["body"])"
+            print(body)
+            self.photoText2.append(body)
+            self.photoCollectionView.reloadData()
+            print(self.photoText2)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoTitle.count      //quante celle vogliamo
+        return photoTitle2.count      //quante celle vogliamo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
-        cell.photoTitle.text = photoTitle[indexPath.row] //incrementa gli elementi di photoTitle
+        cell.photoTitle.text = photoTitle2[indexPath.row] //incrementa gli elementi di photoTitle
         cell.image.image = image[indexPath.row]
-        cell.photoText.text = photoText[indexPath.row]
+        cell.photoText.text = photoText2[indexPath.row]
        
         //This creates the shadows and modifies the cards a little bit
         cell.contentView.layer.cornerRadius = 4.0
