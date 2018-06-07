@@ -18,11 +18,11 @@ class FirstViewController: UIViewController {
     
     //var interest = Interest.fetchInterests()
     let cellScaling: CGFloat = 0.6
-    let userJson = jsonManager()
     var json = JSON()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScaling)
@@ -39,7 +39,7 @@ class FirstViewController: UIViewController {
         collectionView?.dataSource = self
         collectionView?.delegate = self
         
-        userJson.manager.request("http://timelifeweb.test/api/calendar/101").responseJSON { response in
+        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/101").responseJSON { response in
             let data = response.result.value
             self.json = JSON(data!)
             print(self.json)

@@ -61,13 +61,10 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var date = ""
     
-    let ThirdJson = jsonManager()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("cacca")
+        print("Salvo la data")
         print(date)
         
         // Do any additional setup after loading the view.
@@ -130,9 +127,9 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
             "mediaUrl" : "https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg"
         ]
         
-        let urlString = "https://timelifeweb.test/api/media"
+        //let urlString = "https://timelifeweb.test/api/media"
         
-        ThirdJson.manager.request(urlString, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media", method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
             print(response)
             switch response.result {

@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 class UserViewController: UIViewController {
- let userJson = jsonManager()
 
     @IBOutlet weak var nameUser: UILabel!
     
@@ -25,7 +24,8 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userJson.manager.request("http://timelifeweb.test/api/user/5").responseJSON{response in
+
+        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/user/6").responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
             

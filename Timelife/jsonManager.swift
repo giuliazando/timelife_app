@@ -9,27 +9,28 @@
 import Foundation
 import Alamofire
 
-class jsonManager: UIViewController {
 
+class JsonManager {
+    private init () {}
+    static let sharedInstance = JsonManager()
     
-    
-public var manager: Alamofire.SessionManager =
-{
-    
-    // Create the server trust policies
-    let serverTrustPolicies: [String: ServerTrustPolicy] = [
-        "timelifeweb.test": .disableEvaluation
-    ]
-    
-    // Create custom manager
-    let configuration = URLSessionConfiguration.default
-    configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-    let manager = Alamofire.SessionManager(
-        configuration: URLSessionConfiguration.default,
-        serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
-    )
-    
-    return manager
-    }()
-}
+       public var manager: Alamofire.SessionManager =
+    {
+        
+        // Create the server trust policies
+        let serverTrustPolicies: [String: ServerTrustPolicy] = [
+            "timelifeweb.test": .disableEvaluation
+        ]
+        
+        // Create custom manager
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+        let manager = Alamofire.SessionManager(
+            configuration: URLSessionConfiguration.default,
+            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+        )
+        
+        return manager
+        }()
+    }
 
