@@ -37,7 +37,7 @@ class LoginViewController: UIViewController  {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/user").responseJSON { response in
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/user/6").responseJSON { response in
             /*print(response.request as Any)  // original URL request
              print(response.response as Any) // URL response
              print(response.result.value as Any)   // result of response serialization
@@ -46,7 +46,6 @@ class LoginViewController: UIViewController  {
             let json = JSON(data!)
             print(json)
             print(json.count)
-            
             
             for i in 0..<json["data"].count {
                 print("\(json["data"][i]["id"])")

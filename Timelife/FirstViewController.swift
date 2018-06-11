@@ -39,7 +39,7 @@ class FirstViewController: UIViewController {
         collectionView?.dataSource = self
         collectionView?.delegate = self
         
-        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/101").responseJSON { response in
+        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/2").responseJSON { response in
             let data = response.result.value
             self.json = JSON(data!)
             print(self.json)
@@ -62,8 +62,19 @@ extension FirstViewController : UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCell", for: indexPath) as! CollectionViewCell
-        cell.MonthName.text = json[indexPath.row]["date"].stringValue
-        cell.MonthDay.text = "3"
+        
+        //data modificata: da yyyy-MM-dd HH:mm:ss a dd MMMM yyyy
+        let dateString = json[indexPath.row]["date"].stringValue
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateFromString = dateFormatter.date(from: dateString)
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        let dateFinal = dateFormatter.string(from: dateFromString!)
+        
+        cell.MonthName.text = dateFinal
+        
+        print("data cambiata: " + dateFinal)
+        
         var imagename = ""
         switch json[indexPath.row]["mood"].stringValue {
         case "good":

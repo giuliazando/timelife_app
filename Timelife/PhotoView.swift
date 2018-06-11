@@ -11,9 +11,8 @@ import Alamofire
 import SwiftyJSON
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+
     
-    @IBOutlet weak var photoTitle: UILabel!
-    @IBOutlet weak var photoText: UILabel!
     @IBOutlet weak var photoCollectionView: UICollectionView!
   
     var photoTitle2 = Array<String>()
@@ -25,7 +24,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         
         
-        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/media/4").responseJSON{response in
+        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/media/5").responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
             

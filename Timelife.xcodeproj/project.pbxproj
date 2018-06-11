@@ -23,7 +23,7 @@
 		CBBC4DBB20690F70009D0355 /* TimelifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */; };
 		CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */; };
 		CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DD320690FAD009D0355 /* PhotoView.swift */; };
-		CBE3861C20B2F21B00DEF3F8 /* jsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3861B20B2F21B00DEF3F8 /* jsonManager.swift */; };
+		CBE3861C20B2F21B00DEF3F8 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelifeUITests.swift; sourceTree = "<group>"; };
 		CBBC4DC720690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBBC4DD320690FAD009D0355 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
-		CBE3861B20B2F21B00DEF3F8 /* jsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonManager.swift; sourceTree = "<group>"; };
+		CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				CBBC4DA520690F6F009D0355 /* AppDelegate.swift */,
-				CBE3861B20B2F21B00DEF3F8 /* jsonManager.swift */,
+				CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */,
 				CB605C322099DFD200C920FC /* LoginViewController.swift */,
 				CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */,
 				CBAF84CC20971A3400A07B0B /* DateViewController.swift */,
@@ -376,7 +376,7 @@
 				CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */,
 				CB8BDB8820AD79E80095B67F /* CollectionViewCell.swift in Sources */,
 				CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */,
-				CBE3861C20B2F21B00DEF3F8 /* jsonManager.swift in Sources */,
+				CBE3861C20B2F21B00DEF3F8 /* JsonManager.swift in Sources */,
 				CB2D317320BC073A00C5F601 /* UserViewController.swift in Sources */,
 				CB605C332099DFD200C920FC /* LoginViewController.swift in Sources */,
 				CB000960206A3CF000B00C29 /* FirstViewController.swift in Sources */,

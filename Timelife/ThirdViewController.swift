@@ -19,23 +19,29 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var loveButton: UIButton!
     @IBOutlet weak var badButton: UIButton!
     
-    
+    var moodSelection: String?
+
     @IBAction func goodButton(_ sender: Any) {
         loveButton.alpha = 0.3
         badButton.alpha = 0.3
         goodButton.alpha = 1
+        moodSelection = "good"
     }
     
     @IBAction func lovebutton(_ sender: Any) {
         goodButton.alpha = 0.3
         badButton.alpha = 0.3
         loveButton.alpha = 1
+        moodSelection = "love"
+
     }
     
     @IBAction func badButton(_ sender: Any) {
         loveButton.alpha = 0.3
         goodButton.alpha = 0.3
         badButton.alpha = 1
+        moodSelection = "bad"
+
     }
     
     @IBAction func backSecond(_ sender: Any) {
@@ -45,7 +51,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var saveTitle: String?
     var saveStory: String?
     
-    
     @IBAction func saveDiaryDay(_ sender: Any) {
         saveTitle = addTitle.text
         print("sto salvando")
@@ -54,6 +59,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         saveStory = addStory.text
         print("sto salvando il testo")
         print(saveStory!)
+        
+        print("sto salvando il mood: " + moodSelection!)
         
         sendMedia()
         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
@@ -119,7 +126,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let parameters : Parameters = [
             "id_user" : 2,
             "id_calendar": 20,
-            "mood": "love",
+            "mood": self.moodSelection!,
             "title": self.saveTitle!,
             "body": self.saveStory!,
             "type": "photo",
@@ -128,6 +135,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         ]
         
         //let urlString = "https://timelifeweb.test/api/media"
+        
+        print("questo è il mood che viene salvato: " + "\(String(describing: parameters["mood"]))")
         
         JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media", method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
