@@ -22,9 +22,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("stronzo")
         
-        
-        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/media/5").responseJSON{response in
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media/3").responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
             
@@ -38,6 +38,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.photoTitle2.append(title)
             self.photoCollectionView.reloadData()
             print(self.photoTitle2)
+            print("titolo foto")
             
             let body  = "\(json["data"]["body"])"
             print(body)

@@ -19,6 +19,34 @@ class FirstViewController: UIViewController {
     //var interest = Interest.fetchInterests()
     let cellScaling: CGFloat = 0.6
     var json = JSON()
+    let defaults = UserDefaults.standard
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+//        self.defaults.set(nil, forKey: "token")
+        if((defaults.object(forKey: "token") as? String) == nil) {
+            print("foj")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "loginView")
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            let token = defaults.object(forKey: "token") as? String
+            
+            let Headers:HTTPHeaders = [
+                "Accept": "application/json",
+                "Authorization": "Bearer \(token ?? "")"
+            ]
+            
+            JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar", headers: Headers).responseJSON { response in
+                let data = response.result.value
+                print(data!)
+                self.json = JSON(data!)
+                print(self.json)
+                self.collectionView.reloadData()
+                print(response)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +67,20 @@ class FirstViewController: UIViewController {
         collectionView?.dataSource = self
         collectionView?.delegate = self
         
-        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/2").responseJSON { response in
+        let token = defaults.object(forKey: "token") as? String
+        
+        let Headers:HTTPHeaders = [
+            "Accept": "application/json",
+            "Authorization": "Bearer \(token ?? "")"
+        ]
+        
+        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar", headers: Headers).responseJSON { response in
             let data = response.result.value
+            print(data!)
             self.json = JSON(data!)
             print(self.json)
             self.collectionView.reloadData()
+            print(response)
         }
     }
 }
@@ -57,6 +94,7 @@ extension FirstViewController : UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //print(interest.count)
+        
         return json.count
     }
     
@@ -64,44 +102,47 @@ extension FirstViewController : UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCell", for: indexPath) as! CollectionViewCell
         
         //data modificata: da yyyy-MM-dd HH:mm:ss a dd MMMM yyyy
-        let dateString = json[indexPath.row]["date"].stringValue
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let dateFromString = dateFormatter.date(from: dateString)
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        let dateFinal = dateFormatter.string(from: dateFromString!)
-        
-        cell.MonthName.text = dateFinal
-        
-        print("data cambiata: " + dateFinal)
-        
-        var imagename = ""
-        switch json[indexPath.row]["mood"].stringValue {
-        case "good":
-            imagename = "good"
+        print(json)
+    
+        if (json["message"] != "Unauthenticated.") {
+            let dateString = json[indexPath.row]["date"].stringValue
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let dateFromString = dateFormatter.date(from: dateString)
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            let dateFinal = dateFormatter.string(from: dateFromString!)
+            cell.MonthName.text = dateFinal
+            print("data cambiata: " + dateFinal)
             
-        case "bad":
-            imagename = "bad"
+            var imagename = ""
+            switch json[indexPath.row]["mood"].stringValue {
+            case "good":
+                imagename = "good"
+                
+            case "bad":
+                imagename = "bad"
+                
+            case "love":
+                imagename = "love"
+                
+            case "lovegood","goodlove":
+                imagename = "lovegood"
+                
+            case "lovebad","badlove":
+                imagename = "lovebad"
+                
+            case "goodbad","badgood":
+                imagename = "goodbad"
+                
+            case "goodbadlove","goodlovebad","lovebadgood","lovegoodbad","badlovegood","badgoodlove" :
+                imagename = "goodbadlove"
+            default:
+                imagename = "empty"
+            }
             
-        case "love":
-            imagename = "love"
-            
-        case "lovegood","goodlove":
-            imagename = "lovegood"
-            
-        case "lovebad","badlove":
-            imagename = "lovebad"
-            
-        case "goodbad","badgood":
-            imagename = "goodbad"
-        
-        case "goodbadlove","goodlovebad","lovebadgood","lovegoodbad","badlovegood","badgoodlove" :
-            imagename = "goodbadlove"
-        default:
-            imagename = ""
+            cell.ImageView.image = UIImage(named: imagename)
         }
         
-        cell.ImageView.image = UIImage(named: imagename)
 
         return cell
     }

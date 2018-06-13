@@ -18,11 +18,11 @@
 		CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAF84CC20971A3400A07B0B /* DateViewController.swift */; };
 		CBBC4DA620690F6F009D0355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DA520690F6F009D0355 /* AppDelegate.swift */; };
 		CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DA920690F6F009D0355 /* Main.storyboard */; };
-		CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAC20690F6F009D0355 /* Assets.xcassets */; };
 		CBBC4DB020690F6F009D0355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */; };
 		CBBC4DBB20690F70009D0355 /* TimelifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */; };
 		CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */; };
 		CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DD320690FAD009D0355 /* PhotoView.swift */; };
+		CBC1750620CEC2DF00AA1890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC1750520CEC2DF00AA1890 /* Assets.xcassets */; };
 		CBE3861C20B2F21B00DEF3F8 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +58,6 @@
 		CBBC4DA220690F6F009D0355 /* Timelife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timelife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBC4DA520690F6F009D0355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBBC4DAA20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CBBC4DAC20690F6F009D0355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBBC4DAF20690F6F009D0355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBBC4DB120690F6F009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBBC4DB620690F70009D0355 /* TimelifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimelifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +67,7 @@
 		CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelifeUITests.swift; sourceTree = "<group>"; };
 		CBBC4DC720690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBBC4DD320690FAD009D0355 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		CBC1750520CEC2DF00AA1890 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,8 +150,8 @@
 				CBBC4DD320690FAD009D0355 /* PhotoView.swift */,
 				CB45B126207F58F700379FD1 /* ThirdViewController.swift */,
 				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
-				CBBC4DAC20690F6F009D0355 /* Assets.xcassets */,
 				CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */,
+				CBC1750520CEC2DF00AA1890 /* Assets.xcassets */,
 				CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */,
 				CBBC4DB120690F6F009D0355 /* Info.plist */,
 			);
@@ -288,7 +288,7 @@
 			files = (
 				CBBC4DB020690F6F009D0355 /* LaunchScreen.storyboard in Resources */,
 				CB13D4A620A0796C00DD89CA /* Avenue du Vapoteur.ttf in Resources */,
-				CBBC4DAD20690F6F009D0355 /* Assets.xcassets in Resources */,
+				CBC1750620CEC2DF00AA1890 /* Assets.xcassets in Resources */,
 				CBBC4DAB20690F6F009D0355 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

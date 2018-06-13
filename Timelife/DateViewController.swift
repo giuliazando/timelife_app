@@ -10,13 +10,10 @@ import UIKit
 
 class DateViewController: UIViewController {
 
-    
+
     @IBOutlet weak var dataText: UILabel!
-    
     @IBOutlet weak var selectDate: UIDatePicker!
-    
     @IBOutlet weak var saveDate: UIButton!
-    
     @IBAction func backDate(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

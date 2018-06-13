@@ -112,15 +112,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func sendMedia() {
-        /*
-         id_user: 2
-         id_calendar: 20
-         mood: love
-         title: voglio morire
-         body: jjòjkjijoiio
-         type: photo
-         mediaUrl :https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg
-         */
+        
         print(self.date)
         
         let parameters : Parameters = [

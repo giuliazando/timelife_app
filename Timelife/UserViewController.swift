@@ -13,13 +13,9 @@ import SwiftyJSON
 class UserViewController: UIViewController {
 
     @IBOutlet weak var nameUser: UILabel!
-    
     @IBOutlet weak var emailUser: UILabel!
-        
     @IBOutlet weak var countryUser: UILabel!
-    
     @IBOutlet weak var userImage: UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +28,7 @@ class UserViewController: UIViewController {
             let data = response.result.value
             let json = JSON(data!)
             print(json["data"])
-            print(data)
+            print(data!)
             
             let name = "\(json["name"])"
             self.nameUser.text = name
