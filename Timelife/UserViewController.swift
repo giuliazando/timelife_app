@@ -17,11 +17,21 @@ class UserViewController: UIViewController {
     @IBOutlet weak var countryUser: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     
+    let carlo = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/user/6").responseJSON{response in
+        let token = carlo.object(forKey: "token") as? String
+        
+        let headers:HTTPHeaders = [
+            "Accept": "application/json",
+            "Authorization": "Bearer \(token ?? "")"
+        ]
+        
+        let userId = UserDefaults.standard.string(forKey: "userId")
+        
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/user/" + userId!, headers: headers).responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
             

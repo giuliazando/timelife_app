@@ -17,6 +17,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
   
     var photoTitle2 = Array<String>()
     var photoText2 = Array<String>()
+    
+    let carlo = UserDefaults.standard
 
     let image = [UIImage(named: "vacanze-invernali"), UIImage(named: "prendere-il-sole"), UIImage(named: "vaso-rotto")]
     
@@ -24,27 +26,44 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         print("stronzo")
         
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media/3").responseJSON{response in
+        
+        let token = carlo.object(forKey: "token") as? String
+        
+        let headers:HTTPHeaders = [
+            "Accept": "application/json",
+            "Authorization": "Bearer \(token ?? "")"
+        ]
+        
+        let userId = UserDefaults.standard.string(forKey: "userId")
+        
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/allmedia/" + userId!, headers:headers).responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
             
             let data = response.result.value
             let json = JSON(data!)
-            print(json["data"])
-            print(data)
+
             
-            let title = "\(json["data"]["title"])"
-            print(title)
-            self.photoTitle2.append(title)
-            self.photoCollectionView.reloadData()
-            print(self.photoTitle2)
-            print("titolo foto")
+            for i in 0..<json.count {
+                print("\(i) times 5 is \(i * 5)")
             
-            let body  = "\(json["data"]["body"])"
-            print(body)
-            self.photoText2.append(body)
-            self.photoCollectionView.reloadData()
-            print(self.photoText2)
+                print(response.result.value)
+                print(data!)
+                
+                let title = "\(json[i]["title"])"
+                print(title)
+                self.photoTitle2.append(title)
+                self.photoCollectionView.reloadData()
+                print(self.photoTitle2)
+                print("titolo foto")
+                
+                let body  = "\(json[i]["body"])"
+                print(body)
+                self.photoText2.append(body)
+                self.photoCollectionView.reloadData()
+                print(self.photoText2)
+                print("spiegazione foto")
+            }
         }
     }
     
@@ -70,7 +89,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-        
+    
          return cell
     }
     @IBAction func backFirst(_ sender: Any) {

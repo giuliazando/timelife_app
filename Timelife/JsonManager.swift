@@ -13,8 +13,7 @@ import Alamofire
 class JsonManager {
     private init () {}
     static let sharedInstance = JsonManager()
-    
-       public var manager: Alamofire.SessionManager =
+    public var manager: Alamofire.SessionManager =
     {
         
         // Create the server trust policies
@@ -29,7 +28,6 @@ class JsonManager {
             configuration: URLSessionConfiguration.default,
             serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
         )
-        
         return manager
         }()
     }

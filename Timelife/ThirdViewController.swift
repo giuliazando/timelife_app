@@ -20,6 +20,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var badButton: UIButton!
     
     var moodSelection: String?
+    
+    let carlo = UserDefaults.standard
 
     @IBAction func goodButton(_ sender: Any) {
         loveButton.alpha = 0.3
@@ -115,31 +117,38 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         print(self.date)
         
+        let token = carlo.object(forKey: "token") as? String
+        
+        let headers : HTTPHeaders = [
+            "Accept": "application/json",
+            "Authorization": "Bearer \(token ?? "")"
+        ]
+        
         let parameters : Parameters = [
-            "id_user" : 2,
-            "id_calendar": 20,
+            "calendar_id": 12,
             "mood": self.moodSelection!,
-            "title": self.saveTitle!,
-            "body": self.saveStory!,
+            "title": self.addTitle.text!,
+            "body": self.addStory.text!,
             "type": "photo",
-            "date": "\(self.date)",
-            "mediaUrl" : "https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg"
+            //"date": self.date,
+            "mediaUrl": "https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg"
         ]
         
         //let urlString = "https://timelifeweb.test/api/media"
         
         print("questo è il mood che viene salvato: " + "\(String(describing: parameters["mood"]))")
         
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media", method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
             print(response)
             switch response.result {
             case .success:
                 print(response)
                 print("ho inviato qualcosa al server")
+                print(response)
                 break
             case .failure(let error):
-                
+                print("voglio morire")
                 print(error)
             }
         }

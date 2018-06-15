@@ -328,8 +328,8 @@
                                     <action selector="backDate:" destination="vXS-Ie-Dau" eventType="touchUpInside" id="v7I-rc-hq0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sml-8A-AwB">
-                                <rect key="frame" x="130" y="441" width="113" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sml-8A-AwB">
+                                <rect key="frame" x="109" y="441" width="155" height="36"/>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.51372549020000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <state key="normal" title="Choose">
@@ -343,13 +343,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n9l-i9-Luq" firstAttribute="bottom" secondItem="Sml-8A-AwB" secondAttribute="bottom" constant="184" id="Caf-Wt-57I"/>
+                            <constraint firstItem="Sml-8A-AwB" firstAttribute="top" secondItem="w2Q-yo-cPG" secondAttribute="bottom" constant="69" id="6SP-qu-zfO"/>
                             <constraint firstItem="w2Q-yo-cPG" firstAttribute="leading" secondItem="n9l-i9-Luq" secondAttribute="leading" constant="26.5" id="Dq1-hB-Suv"/>
                             <constraint firstItem="n9l-i9-Luq" firstAttribute="trailing" secondItem="F8q-pc-fKF" secondAttribute="trailing" constant="309" id="Jlg-ST-2KW"/>
+                            <constraint firstItem="n9l-i9-Luq" firstAttribute="bottom" secondItem="Sml-8A-AwB" secondAttribute="bottom" constant="190" id="OdR-B4-xsP"/>
                             <constraint firstItem="F8q-pc-fKF" firstAttribute="leading" secondItem="n9l-i9-Luq" secondAttribute="leading" constant="16" id="PLB-Ft-LeK"/>
-                            <constraint firstItem="n9l-i9-Luq" firstAttribute="trailing" secondItem="Sml-8A-AwB" secondAttribute="trailing" constant="156" id="RFk-Cp-Azb"/>
-                            <constraint firstItem="Sml-8A-AwB" firstAttribute="leading" secondItem="n9l-i9-Luq" secondAttribute="leading" constant="156" id="akH-5I-hXK"/>
+                            <constraint firstItem="n9l-i9-Luq" firstAttribute="trailing" secondItem="Sml-8A-AwB" secondAttribute="trailing" constant="111" id="XO7-3j-bT9"/>
                             <constraint firstItem="w2Q-yo-cPG" firstAttribute="top" secondItem="F8q-pc-fKF" secondAttribute="bottom" constant="82" id="cSg-D5-sn7"/>
+                            <constraint firstItem="Sml-8A-AwB" firstAttribute="leading" secondItem="n9l-i9-Luq" secondAttribute="leading" constant="109" id="pH5-YN-OQ6"/>
                             <constraint firstItem="n9l-i9-Luq" firstAttribute="trailing" secondItem="w2Q-yo-cPG" secondAttribute="trailing" constant="28.5" id="rX6-1O-goC"/>
                             <constraint firstItem="w2Q-yo-cPG" firstAttribute="top" secondItem="F8q-pc-fKF" secondAttribute="bottom" constant="82" id="vWo-v1-LlE"/>
                             <constraint firstItem="F8q-pc-fKF" firstAttribute="top" secondItem="n9l-i9-Luq" secondAttribute="top" id="wjL-nm-PYP"/>

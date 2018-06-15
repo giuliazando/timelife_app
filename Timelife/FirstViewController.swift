@@ -21,10 +21,12 @@ class FirstViewController: UIViewController {
     var json = JSON()
     let defaults = UserDefaults.standard
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        print(defaults.string(forKey: "token"))
 //        self.defaults.set(nil, forKey: "token")
-        if((defaults.object(forKey: "token") as? String) == nil) {
+        if((defaults.string(forKey: "token")) == nil) {
             print("foj")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "loginView")
@@ -32,12 +34,14 @@ class FirstViewController: UIViewController {
         } else {
             let token = defaults.object(forKey: "token") as? String
             
-            let Headers:HTTPHeaders = [
+            let headers:HTTPHeaders = [
                 "Accept": "application/json",
                 "Authorization": "Bearer \(token ?? "")"
             ]
             
-            JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar", headers: Headers).responseJSON { response in
+            let userId = defaults.string(forKey: "userId")
+            
+            JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/" + userId!, headers: headers).responseJSON { response in
                 let data = response.result.value
                 print(data!)
                 self.json = JSON(data!)
@@ -66,22 +70,6 @@ class FirstViewController: UIViewController {
         
         collectionView?.dataSource = self
         collectionView?.delegate = self
-        
-        let token = defaults.object(forKey: "token") as? String
-        
-        let Headers:HTTPHeaders = [
-            "Accept": "application/json",
-            "Authorization": "Bearer \(token ?? "")"
-        ]
-        
-        JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar", headers: Headers).responseJSON { response in
-            let data = response.result.value
-            print(data!)
-            self.json = JSON(data!)
-            print(self.json)
-            self.collectionView.reloadData()
-            print(response)
-        }
     }
 }
 
@@ -89,7 +77,6 @@ extension FirstViewController : UICollectionViewDataSource
 {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,7 +92,7 @@ extension FirstViewController : UICollectionViewDataSource
         print(json)
     
         if (json["message"] != "Unauthenticated.") {
-            let dateString = json[indexPath.row]["date"].stringValue
+            let dateString = json[indexPath.row]["calendar_date"].stringValue
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let dateFromString = dateFormatter.date(from: dateString)
@@ -116,22 +103,22 @@ extension FirstViewController : UICollectionViewDataSource
             
             var imagename = ""
             switch json[indexPath.row]["mood"].stringValue {
-            case "good":
+            case "good","goodgood","goodgoodgood":
                 imagename = "good"
                 
-            case "bad":
+            case "bad","badbad","badbadbad":
                 imagename = "bad"
                 
-            case "love":
+            case "love","lovelove","lovelovelove":
                 imagename = "love"
                 
-            case "lovegood","goodlove":
+            case "lovegood","goodlove","lovelovegood","goodgoodlove","lovegoodlove","goodlovelove","goodlovegood","godgoodlove":
                 imagename = "lovegood"
                 
-            case "lovebad","badlove":
+            case "lovebad","badlove","badbadlove","lovelovebad","badlovebad","lovebadlove","lovebadbad","badlovelove":
                 imagename = "lovebad"
                 
-            case "goodbad","badgood":
+            case "goodbad","badgood","badbadgood","goodgoodbad","badgoodbad","goodbadgood","goodbadbad","badgoodgood":
                 imagename = "goodbad"
                 
             case "goodbadlove","goodlovebad","lovebadgood","lovegoodbad","badlovegood","badgoodlove" :
@@ -139,11 +126,8 @@ extension FirstViewController : UICollectionViewDataSource
             default:
                 imagename = "empty"
             }
-            
             cell.ImageView.image = UIImage(named: imagename)
         }
-        
-
         return cell
     }
     
@@ -151,7 +135,6 @@ extension FirstViewController : UICollectionViewDataSource
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         print("immagine \(indexPath.row)")
-        
     }
 }
 
@@ -168,7 +151,6 @@ extension FirstViewController : UIScrollViewDelegate, UICollectionViewDelegate
         
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
-        
     }
 }
 
