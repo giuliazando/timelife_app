@@ -24,23 +24,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func backToLogin(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func btnRegister(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        
-        let parametri : Parameters = [
-            "name" : String(describing: nameRegister.text),
-            "email": String(describing: emailRegister.text),
-            "password": String(describing: passwordRegister.text),
-            "password": String(describing: confirmPasswordRegister.text),
-            "location": countryPicker,
-            "gender": genderRegister
-        ]
-        
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/register", method: .post, parameters: parametri).responseJSON { response in
-            let data = response.result.value
-            let json = JSON(data!)
-        }
-    }
+   
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -52,6 +36,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    var selectedCountry = "Afghanistan"
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedCountry = pickerData[row]
+        print(selectedCountry)
     }
     
     override func viewDidLoad()
@@ -66,6 +57,75 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         countryPicker.delegate = self
         countryPicker.dataSource = self
     }
+    
+    
+    @IBAction func btnRegister(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+        //        let parametri : Parameters = [
+        //            "name" : String(describing: nameRegister.text),
+        //            "email": String(describing: emailRegister.text),
+        //            "password": String(describing: passwordRegister.text),
+        //            "password": String(describing: confirmPasswordRegister.text),
+        //            "location": countryPicker,
+        //            "gender": genderRegister
+        //        ]
+        
+        var gender = ""
+        if (genderRegister.selectedSegmentIndex == 0) {
+            gender = "male"
+        }
+        else {
+            gender = "female"
+        }
+        
+        let parameters: Parameters = [
+            "name" : nameRegister.text!,
+            "email" : emailRegister.text!,
+            "password" : passwordRegister.text!,
+            "password_confirmation" : confirmPasswordRegister.text!,
+            "gender" : gender,
+            "location" : selectedCountry
+        ]
+        print(parameters)
+        
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/register", method: .post, parameters: parameters).responseJSON { response in
+            let data = response.result.value
+            let json = JSON(data!)
+            
+            print(data)
+            print(json)
+            print("\(json["id"])")
+            let idUser = "\(json["id"])"
+            
+            if (json["error"] != JSON.null) {
+                print("c'è un errore")
+            } else {
+                print("Tutto a posto")
+                
+                let parametersForToken : Parameters = [
+                    "grant_type" : "password",
+                    "client_id": 1,
+                    "client_secret": "i7q4XrVF4RZD7kaHuxsLBFSd33HXijhCc0wouY7Z",
+                    "username": self.emailRegister.text!,
+                    "password": self.passwordRegister.text!,
+                    "scope": "*"
+                ]
+                
+                print(parametersForToken)
+                JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/oauth/token", method: .post, parameters: parametersForToken).responseJSON { response in
+                    let data = response.result.value
+                    let json = JSON(data!)
+                    let defaults = UserDefaults.standard
+                    print(json)
+                    defaults.set("\(json[0]["access_token"])", forKey: "token")
+                    print("\(json[0]["access_token"])" + " ciaomamma")
+                    defaults.set("\(json[0]["id"])", forKey: "userId")
+                    self.performSegue(withIdentifier: "goToHome", sender: nil)
+            }
+        }
+    }
+}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

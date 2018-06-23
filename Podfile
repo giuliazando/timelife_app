@@ -5,7 +5,7 @@ use_frameworks!
 target 'Timelife' do
     pod 'Alamofire'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
-    pod 'SwiftDate', '~> 4.4.0'
+    pod 'SwiftDate' 
 end
 
 

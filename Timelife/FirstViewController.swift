@@ -40,21 +40,26 @@ class FirstViewController: UIViewController {
             ]
             
             let userId = defaults.string(forKey: "userId")
+            print(userId, "sono l'userId")
             
             JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/" + userId!, headers: headers).responseJSON { response in
                 let data = response.result.value
-                print(data!)
+                //print(data!)
                 self.json = JSON(data!)
-                print(self.json)
+                    
+               // print(self.json)
                 self.collectionView.reloadData()
-                print(response)
+                //print(response)
             }
         }
     }
     
+    var date = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("Sono nel FirstController")
         
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScaling)
@@ -80,29 +85,54 @@ extension FirstViewController : UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //print(interest.count)
-        
-        return json.count
+        var newCount = json.count
+        if (newCount == 0) {
+            newCount = 1
+        }
+        print(newCount)
+
+        return newCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCell", for: indexPath) as! CollectionViewCell
-        
-        //data modificata: da yyyy-MM-dd HH:mm:ss a dd MMMM yyyy
-        print(json)
-    
+       
         if (json["message"] != "Unauthenticated.") {
-            let dateString = json[indexPath.row]["calendar_date"].stringValue
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            let dateFromString = dateFormatter.date(from: dateString)
-            dateFormatter.dateFormat = "dd MMMM yyyy"
-            let dateFinal = dateFormatter.string(from: dateFromString!)
-            cell.MonthName.text = dateFinal
-            print("data cambiata: " + dateFinal)
+
+            var fullMood = ""
+            
+            if (json[indexPath.row]["medias"].count == 0) {
+                let imageempty = "empty"
+                cell.ImageView.image = UIImage(named: imageempty)
+                
+                let currentDate = Date()
+                dateFormatter.dateFormat = "dd MMMM yyyy"
+                let dateFinal = dateFormatter.string(from: currentDate)
+                cell.MonthName.text = dateFinal
+                print(currentDate)
+            }
+            else {
+                let dateString = json[indexPath.row]["calendar_date"].stringValue
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let dateFromString = dateFormatter.date(from: dateString)
+                dateFormatter.dateFormat = "dd MMMM yyyy"
+                let dateFinal = dateFormatter.string(from: dateFromString!)
+                cell.MonthName.text = dateFinal
+                print("data cambiata: " + dateFinal)
+                print(dateFinal, "sono la DATAAAAAAA")
+            }
+            
+            for i in 0..<json[indexPath.row]["medias"].count {
+                fullMood = fullMood + json[indexPath.row]["medias"][i]["mood"].stringValue
+            }
+            
+            print(fullMood)
+            print("sono il dulllllllll mooood")
             
             var imagename = ""
-            switch json[indexPath.row]["mood"].stringValue {
+            
+            switch fullMood {
             case "good","goodgood","goodgoodgood":
                 imagename = "good"
                 
@@ -112,7 +142,7 @@ extension FirstViewController : UICollectionViewDataSource
             case "love","lovelove","lovelovelove":
                 imagename = "love"
                 
-            case "lovegood","goodlove","lovelovegood","goodgoodlove","lovegoodlove","goodlovelove","goodlovegood","godgoodlove":
+            case "lovegood","goodlove","lovelovegood","goodgoodlove","lovegoodlove","goodlovelove","goodlovegood","goodgoodlove","lovegoodgood":
                 imagename = "lovegood"
                 
             case "lovebad","badlove","badbadlove","lovelovebad","badlovebad","lovebadlove","lovebadbad","badlovelove":
@@ -134,7 +164,21 @@ extension FirstViewController : UICollectionViewDataSource
    //ciò che stampa se clicco sulla cella
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
+        self.performSegue(withIdentifier: "saveIdCalendar", sender: nil)
         print("immagine \(indexPath.row)")
+        
+    }
+    
+    //questa funzione serve per capire l'id_calendar corrispondente alla card selezionata dal carosello.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "saveIdCalendar") {
+            let view = segue.destination as! PhotoViewController
+            
+        if  let itemIndex = collectionView.indexPathsForSelectedItems?.first?.item {
+            let selectedItem = self.json[itemIndex]["id"]
+            view.number = "\(selectedItem)"
+            }
+        }
     }
 }
 

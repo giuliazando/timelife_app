@@ -23,7 +23,7 @@ class DateViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! ThirdViewController
+        let view = segue.destination as! FirstViewController
         view.date = self.dataText.text!
     }
         

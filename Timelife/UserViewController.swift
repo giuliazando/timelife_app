@@ -34,10 +34,10 @@ class UserViewController: UIViewController {
         JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/user/" + userId!, headers: headers).responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
+            print(userId)
             
             let data = response.result.value
             let json = JSON(data!)
-            print(json["data"])
             print(data!)
             
             let name = "\(json["name"])"

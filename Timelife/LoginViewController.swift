@@ -15,7 +15,6 @@ class LoginViewController: UIViewController  {
     @IBOutlet weak var addEmail: UITextField!
     @IBOutlet weak var addPassword: UITextField!
     
-    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,18 +45,17 @@ class LoginViewController: UIViewController  {
             let data = response.result.value
             let json = JSON(data!)
             if(json["message"] == JSON.null) {
-                let carlo = UserDefaults.standard
                 
-                
-                carlo.set("\(json[0]["access_token"])", forKey: "token")
-                print(carlo.string(forKey: "token"))
+                let defaults = UserDefaults.standard
+
+                defaults.set("\(json[0]["access_token"])", forKey: "token")
                 print("\(json[0]["access_token"])" + " ciaomamma")
-                self.dismiss(animated: true, completion: nil)
+                print(defaults.string(forKey: "token"))
                 
                 //mi serve per salvare id utente
-                carlo.set("\(json[0]["id"])", forKey: "userId")
-                print(carlo.string(forKey: "userId"))
-      
+                defaults.set("\(json[0]["id"])", forKey: "userId")
+                print(defaults.string(forKey: "userId"))
+                self.dismiss(animated: true, completion: nil)
             }
             else {
                 print(json["message"])

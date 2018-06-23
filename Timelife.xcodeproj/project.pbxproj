@@ -21,7 +21,7 @@
 		CBBC4DB020690F6F009D0355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBBC4DAE20690F6F009D0355 /* LaunchScreen.storyboard */; };
 		CBBC4DBB20690F70009D0355 /* TimelifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DBA20690F70009D0355 /* TimelifeTests.swift */; };
 		CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */; };
-		CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DD320690FAD009D0355 /* PhotoView.swift */; };
+		CBBC4DD420690FAD009D0355 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DD320690FAD009D0355 /* PhotoViewController.swift */; };
 		CBC1750620CEC2DF00AA1890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC1750520CEC2DF00AA1890 /* Assets.xcassets */; };
 		CBE3861C20B2F21B00DEF3F8 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */; };
 /* End PBXBuildFile section */
@@ -66,7 +66,7 @@
 		CBBC4DC120690F70009D0355 /* TimelifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimelifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelifeUITests.swift; sourceTree = "<group>"; };
 		CBBC4DC720690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CBBC4DD320690FAD009D0355 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		CBBC4DD320690FAD009D0355 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CBC1750520CEC2DF00AA1890 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,11 +143,11 @@
 				CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */,
 				CB605C322099DFD200C920FC /* LoginViewController.swift */,
 				CB4B63FE20A87DFE0043D179 /* RegisterViewController.swift */,
-				CBAF84CC20971A3400A07B0B /* DateViewController.swift */,
 				CB00095F206A3CF000B00C29 /* FirstViewController.swift */,
+				CBAF84CC20971A3400A07B0B /* DateViewController.swift */,
 				CB2D317220BC073A00C5F601 /* UserViewController.swift */,
 				CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */,
-				CBBC4DD320690FAD009D0355 /* PhotoView.swift */,
+				CBBC4DD320690FAD009D0355 /* PhotoViewController.swift */,
 				CB45B126207F58F700379FD1 /* ThirdViewController.swift */,
 				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
 				CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */,
@@ -372,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBBC4DD420690FAD009D0355 /* PhotoView.swift in Sources */,
+				CBBC4DD420690FAD009D0355 /* PhotoViewController.swift in Sources */,
 				CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */,
 				CB8BDB8820AD79E80095B67F /* CollectionViewCell.swift in Sources */,
 				CB4B63FF20A87DFE0043D179 /* RegisterViewController.swift in Sources */,

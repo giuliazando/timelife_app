@@ -46,7 +46,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     }
     
-    @IBAction func backSecond(_ sender: Any) {
+    @IBAction func backToDate(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -68,6 +68,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
     
+    var number = ""
     var date = ""
     
     override func viewDidLoad() {
@@ -125,7 +126,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         ]
         
         let parameters : Parameters = [
-            "calendar_id": 12,
+            "calendar_id": number,
             "mood": self.moodSelection!,
             "title": self.addTitle.text!,
             "body": self.addStory.text!,
@@ -133,6 +134,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
             //"date": self.date,
             "mediaUrl": "https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg"
         ]
+         print(number, "NUMEROOOOOOOOOO")
+ 
         
         //let urlString = "https://timelifeweb.test/api/media"
         
