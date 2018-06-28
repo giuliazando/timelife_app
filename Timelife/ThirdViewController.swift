@@ -75,7 +75,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         print("Salvo la data")
-        print(date)
         
         // Do any additional setup after loading the view.
         
@@ -116,8 +115,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func sendMedia() {
         
-        print(self.date)
-        
         let token = carlo.object(forKey: "token") as? String
         
         let headers : HTTPHeaders = [
@@ -141,19 +138,76 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         print("questo è il mood che viene salvato: " + "\(String(describing: parameters["mood"]))")
         
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON {
-            response in
-            print(response)
-            switch response.result {
-            case .success:
-                print(response)
-                print("ho inviato qualcosa al server")
-                print(response)
-                break
-            case .failure(let error):
-                print("voglio morire")
-                print(error)
+        let data = MultipartFormData()
+        
+
+        func upload(sender: AnyObject) {
+            if let image = addImage.image {
+                let imageData = UIImageJPEGRepresentation(image, 1.0)
+                
+                let urlString = "https://timelifeweb.test/api/media/"
+                let session = URLSession(configuration: URLSessionConfiguration.default)
+                
+                let mutableURLRequest = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
+                
+                mutableURLRequest.httpMethod = "POST"
+                
+                let boundaryConstant = "----------------12345";
+                let contentType = "multipart/form-data;boundary=" + boundaryConstant
+                mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
+                
+                // create upload data to send
+                let uploadData = NSMutableData()
+                
+                // add image
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"picture\"; filename=\"file.png\"\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Type: image/png\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append(imageData!)
+                uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+                
+                mutableURLRequest.httpBody = uploadData as Data
+                
+                
+                let task = session.dataTask(with: mutableURLRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+                    if error == nil {
+                        // Image uploaded
+                    }
+                })
+                
+                task.resume()
+                
             }
+            
         }
+
+        
+//        JsonManager.sharedInstance.manager.upload(multipartFormData: data, to: "https://timelifeweb.test/api/media/", encodingCompletion: { encodingResult in
+//            switch encodingResult {
+//            case .Success(let upload, _, _):
+//                upload.responseJSON { request, response, JSON, error in
+//
+//                }
+//            case .Failure(let encodingError):
+//                break
+//
+//            }
+//        })
+   
+        
+//        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/media/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON {
+//            response in
+//            print(response)
+//            switch response.result {
+//            case .success:
+//                print(response)
+//                print("ho inviato qualcosa al server")
+//                print(response)
+//                break
+//            case .failure(let error):
+//                print("voglio morire")
+//                print(error)
+//            }
+//        }
     }
 }

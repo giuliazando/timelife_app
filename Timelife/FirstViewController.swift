@@ -15,7 +15,7 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    var convertedDate = ""
     //var interest = Interest.fetchInterests()
     let cellScaling: CGFloat = 0.6
     var json = JSON()
@@ -23,6 +23,7 @@ class FirstViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        print("SONO ENTRATA NEL viewDidAppear ")
         super.viewDidAppear(true)
         print(defaults.string(forKey: "token"))
 //        self.defaults.set(nil, forKey: "token")
@@ -44,21 +45,19 @@ class FirstViewController: UIViewController {
             
             JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/" + userId!, headers: headers).responseJSON { response in
                 let data = response.result.value
-                //print(data!)
+                print(data!)
                 self.json = JSON(data!)
                     
-               // print(self.json)
+                print(self.json)
                 self.collectionView.reloadData()
                 //print(response)
             }
         }
     }
     
-    var date = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         print("Sono nel FirstController")
         
         let screenSize = UIScreen.main.bounds.size
@@ -89,7 +88,7 @@ extension FirstViewController : UICollectionViewDataSource
         if (newCount == 0) {
             newCount = 1
         }
-        print(newCount)
+        print(newCount, "sono il new count")
 
         return newCount
     }
@@ -106,14 +105,34 @@ extension FirstViewController : UICollectionViewDataSource
                 let imageempty = "empty"
                 cell.ImageView.image = UIImage(named: imageempty)
                 
-                let currentDate = Date()
-                dateFormatter.dateFormat = "dd MMMM yyyy"
-                let dateFinal = dateFormatter.string(from: currentDate)
-                cell.MonthName.text = dateFinal
-                print(currentDate)
+                if (json[indexPath.row]["calendar_date"].stringValue == "") {
+                    let currentDate = Date()
+                    dateFormatter.dateFormat = "dd MMMM yyyy"
+                    let dateFinal = dateFormatter.string(from: currentDate)
+                    cell.MonthName.text = dateFinal
+                    print(currentDate)
+                } else {
+                    let currentDate = json[indexPath.row]["calendar_date"].stringValue
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let dateFromString = dateFormatter.date(from: currentDate)
+                    dateFormatter.dateFormat = "dd MMMM yyyy"
+                    let dateFinal = dateFormatter.string(from: dateFromString!)
+                    cell.MonthName.text = dateFinal
+                    print(currentDate)
+                }
+
+//                let currentDate = json[indexPath.row]["calendar_date"].stringValue
+//                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                let dateFromString = dateFormatter.date(from: currentDate)
+//                dateFormatter.dateFormat = "dd MMMM yyyy"
+//                let dateFinal = dateFormatter.string(from: dateFromString!)
+//                cell.MonthName.text = dateFinal
+//                print(currentDate)
             }
             else {
+                print(json[indexPath.row])
                 let dateString = json[indexPath.row]["calendar_date"].stringValue
+                print(dateString)
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 let dateFromString = dateFormatter.date(from: dateString)
                 dateFormatter.dateFormat = "dd MMMM yyyy"
@@ -121,8 +140,11 @@ extension FirstViewController : UICollectionViewDataSource
                 cell.MonthName.text = dateFinal
                 print("data cambiata: " + dateFinal)
                 print(dateFinal, "sono la DATAAAAAAA")
-            }
             
+            
+                print(dateFinal)
+            }
+        
             for i in 0..<json[indexPath.row]["medias"].count {
                 fullMood = fullMood + json[indexPath.row]["medias"][i]["mood"].stringValue
             }
@@ -177,6 +199,7 @@ extension FirstViewController : UICollectionViewDataSource
         if  let itemIndex = collectionView.indexPathsForSelectedItems?.first?.item {
             let selectedItem = self.json[itemIndex]["id"]
             view.number = "\(selectedItem)"
+            print(self.json[itemIndex]["id"], "SONO UN ID BELLISSIMOOOOOO")
             }
         }
     }

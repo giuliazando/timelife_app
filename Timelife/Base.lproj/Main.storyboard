@@ -88,6 +88,9 @@
                                 <rect key="frame" x="316" y="20" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="logout_icon2"/>
+                                <connections>
+                                    <action selector="logoutBtn:" destination="Iwy-Lf-jiz" eventType="touchUpInside" id="kU0-Gq-Tsh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,12 +115,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pEs-ea-M1n">
-                                <rect key="frame" x="0.0" y="66" width="375" height="454"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="454" id="4Tq-NP-VeI"/>
-                                </constraints>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pEs-ea-M1n">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Exr-9J-wUZ">
                                     <size key="itemSize" width="349" height="250"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -171,6 +172,7 @@
                                             <outlet property="image" destination="WhV-E9-p0I" id="Feu-bM-wHN"/>
                                             <outlet property="photoText" destination="3Dc-a2-ki5" id="V4m-6p-Ddb"/>
                                             <outlet property="photoTitle" destination="6Dh-bO-mNL" id="YNj-fF-JmN"/>
+                                            <segue destination="Wzg-Fj-jys" kind="show" identifier="showDetail" id="PVS-ZI-GfG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -179,8 +181,9 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kcH-ZB-Y9X"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-eC-CgG">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-eC-CgG">
                                 <rect key="frame" x="16" y="20" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="0.039414998139999997" green="0.39078074689999998" blue="0.49522137640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -189,25 +192,19 @@
                                     <action selector="backFirst:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ar-yI-m48"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIT-h3-ohg">
-                                <rect key="frame" x="162" y="569" width="50" height="50"/>
-                                <state key="normal" title="Button" image="plus"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIT-h3-ohg">
+                                <rect key="frame" x="157" y="573" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <size key="titleShadowOffset" width="3" height="0.0"/>
+                                <state key="normal" title="Button" image="plus">
+                                    <color key="titleShadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="WrG-B5-q7f" kind="show" identifier="storeIdCalendar" id="jQx-p9-her"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="RHh-Oy-8rN" firstAttribute="trailing" secondItem="BlX-eC-CgG" secondAttribute="trailing" constant="282" id="0dt-Kd-DFT"/>
-                            <constraint firstItem="pEs-ea-M1n" firstAttribute="top" secondItem="BlX-eC-CgG" secondAttribute="bottom" constant="16" id="AUE-16-Yo0"/>
-                            <constraint firstItem="BlX-eC-CgG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ReB-rG-Qhy"/>
-                            <constraint firstItem="pEs-ea-M1n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UEw-n0-kQM"/>
-                            <constraint firstItem="JIT-h3-ohg" firstAttribute="top" secondItem="pEs-ea-M1n" secondAttribute="bottom" constant="49" id="rGn-6h-Qpe"/>
-                            <constraint firstItem="pEs-ea-M1n" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="66" id="uxB-g1-eiH"/>
-                            <constraint firstItem="pEs-ea-M1n" firstAttribute="centerX" secondItem="JIT-h3-ohg" secondAttribute="centerX" id="wD7-3g-UBI"/>
-                            <constraint firstAttribute="trailing" secondItem="pEs-ea-M1n" secondAttribute="trailing" id="wc3-yt-BdC"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RHh-Oy-8rN"/>
                     </view>
                     <connections>
@@ -217,6 +214,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="741.60000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Media Detail Controller-->
+        <scene sceneID="Z6T-Ke-rb6">
+            <objects>
+                <viewController id="Wzg-Fj-jys" customClass="MediaDetailController" customModule="Timelife" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LY4-4c-UNv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwU-sU-1rp">
+                                <rect key="frame" x="16" y="20" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.039414998139999997" green="0.39078074689999998" blue="0.49522137640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToPhotoView:" destination="Wzg-Fj-jys" eventType="touchUpInside" id="UYM-tX-ube"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5e-Ie-Fn6">
+                                <rect key="frame" x="16" y="353" width="343" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="095-Uj-vxJ">
+                                <rect key="frame" x="16" y="467" width="343" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kv7-8n-5hX">
+                                <rect key="frame" x="16" y="79" width="343" height="234"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="doR-hE-e6G"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sk2-lx-lrt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="132.68365817091455"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="O6R-p8-FS7">
@@ -367,7 +410,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveDate:" destination="EtB-Gm-QQi" eventType="touchUpInside" id="h4K-f3-bem"/>
+                                    <action selector="chooseBtn:" destination="vXS-Ie-Dau" eventType="touchUpInside" id="a4B-DM-neM"/>
                                     <segue destination="7eU-jv-C47" kind="show" id="evn-d1-Rcd"/>
                                 </connections>
                             </button>
@@ -390,7 +433,6 @@
                     </view>
                     <connections>
                         <outlet property="dataText" destination="ohO-3i-kRI" id="cfN-0D-kae"/>
-                        <outlet property="saveDate" destination="Sml-8A-AwB" id="MeS-71-Y6Q"/>
                         <outlet property="selectDate" destination="1l8-1A-upq" id="mSx-s7-Nsb"/>
                     </connections>
                 </viewController>
@@ -607,10 +649,7 @@
                                             <outlet property="BackgroundColorView" destination="rb6-lF-CUo" id="yc2-td-sRl"/>
                                             <outlet property="ImageView" destination="hbm-Ll-tOw" id="Eqc-kO-2Hq"/>
                                             <outlet property="MonthName" destination="Elf-cR-OZD" id="UHq-j4-fHs"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="ok3-84-hgX">
-                                                <string key="identifier">saveIdCalendar
-</string>
-                                            </segue>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="saveIdCalendar" id="ok3-84-hgX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -833,6 +872,6 @@
         <image name="sfondo_login" width="1080" height="1920"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="evn-d1-Rcd"/>
+        <segue reference="lWy-mQ-32t"/>
     </inferredMetricsTieBreakers>
 </document>

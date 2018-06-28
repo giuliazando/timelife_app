@@ -23,6 +23,7 @@
 		CBBC4DC620690F70009D0355 /* TimelifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DC520690F70009D0355 /* TimelifeUITests.swift */; };
 		CBBC4DD420690FAD009D0355 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBC4DD320690FAD009D0355 /* PhotoViewController.swift */; };
 		CBC1750620CEC2DF00AA1890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBC1750520CEC2DF00AA1890 /* Assets.xcassets */; };
+		CBC1750820E1220600AA1890 /* MediaDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC1750720E1220600AA1890 /* MediaDetailController.swift */; };
 		CBE3861C20B2F21B00DEF3F8 /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		CBBC4DC720690F70009D0355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBBC4DD320690FAD009D0355 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CBC1750520CEC2DF00AA1890 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBC1750720E1220600AA1890 /* MediaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailController.swift; sourceTree = "<group>"; };
 		CBE3861B20B2F21B00DEF3F8 /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				CB8BDB8720AD79E80095B67F /* CollectionViewCell.swift */,
 				CBBC4DD320690FAD009D0355 /* PhotoViewController.swift */,
 				CB45B126207F58F700379FD1 /* ThirdViewController.swift */,
+				CBC1750720E1220600AA1890 /* MediaDetailController.swift */,
 				CBBC4DA920690F6F009D0355 /* Main.storyboard */,
 				CB13D4A520A0796C00DD89CA /* Avenue du Vapoteur.ttf */,
 				CBC1750520CEC2DF00AA1890 /* Assets.xcassets */,
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBC1750820E1220600AA1890 /* MediaDetailController.swift in Sources */,
 				CBBC4DD420690FAD009D0355 /* PhotoViewController.swift in Sources */,
 				CBAF84CD20971A3400A07B0B /* DateViewController.swift in Sources */,
 				CB8BDB8820AD79E80095B67F /* CollectionViewCell.swift in Sources */,

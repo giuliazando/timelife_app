@@ -7,15 +7,46 @@
 //
 
 import UIKit
+import Alamofire
 
 class DateViewController: UIViewController {
 
 
     @IBOutlet weak var dataText: UILabel!
     @IBOutlet weak var selectDate: UIDatePicker!
-    @IBOutlet weak var saveDate: UIButton!
-    @IBAction func backDate(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+  
+    @IBAction func chooseBtn(_ sender: Any) {
+        
+        let userId = UserDefaults.standard.string(forKey: "userId")
+        let carlo = UserDefaults.standard
+        
+        let token = carlo.object(forKey: "token") as? String
+
+        let headers : HTTPHeaders = [
+            "Accept": "application/json",
+            "Authorization": "Bearer \(token ?? "")"
+        ]
+        
+        let parameters : Parameters = [
+            "mood" : "empty",
+            "calendar_date" : dataText.text
+        ]
+
+        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/calendar/" + userId!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON {
+            response in
+            print(response)
+            switch response.result {
+            case .success:
+                print(response)
+                print("ho inviato qualcosa al server")
+                print(response)
+                break
+            case .failure(let error):
+                print("voglio morire")
+                print(error)
+            }
+        }
+        
     }
     
     @IBAction func pickerDataAction(_ sender: Any) {
@@ -24,7 +55,7 @@ class DateViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let view = segue.destination as! FirstViewController
-        view.date = self.dataText.text!
+        view.convertedDate = self.dataText.text!
     }
         
     override func viewDidLoad() {
@@ -34,14 +65,14 @@ class DateViewController: UIViewController {
         selectDate.maximumDate = currentDate as Date //qui dico che la data massima deve essere la data di oggi
         dataText.text = "\(selectDate.date)"
     }
-
     
     func scomponiDate() {
         let dateFormatter = DateFormatter()
         var convertedDate: String!
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         convertedDate = dateFormatter.string(from: selectDate.date)
         dataText.text = convertedDate
+        print(convertedDate, "sono la data convertita")
         
         var giornodelmese: Int!
         var mesedellanno: Int!
@@ -62,6 +93,10 @@ class DateViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func backDate(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

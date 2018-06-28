@@ -66,6 +66,15 @@ class UserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logoutBtn(_ sender: Any) {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     @IBAction func backToInterest(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
