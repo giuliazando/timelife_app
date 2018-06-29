@@ -18,7 +18,7 @@ class JsonManager {
         
         // Create the server trust policies
         let serverTrustPolicies: [String: ServerTrustPolicy] = [
-            "timelifeweb.test": .disableEvaluation
+            "timelife.test": .disableEvaluation
         ]
         
         // Create custom manager

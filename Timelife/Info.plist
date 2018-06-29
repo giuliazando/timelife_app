@@ -6,9 +6,9 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>timelifeweb.test</key>
+			<key>timelife.test</key>
 			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
 		</dict>

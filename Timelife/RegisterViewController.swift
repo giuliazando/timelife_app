@@ -58,75 +58,83 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         countryPicker.dataSource = self
     }
     
-    
     @IBAction func btnRegister(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        
-        //        let parametri : Parameters = [
-        //            "name" : String(describing: nameRegister.text),
-        //            "email": String(describing: emailRegister.text),
-        //            "password": String(describing: passwordRegister.text),
-        //            "password": String(describing: confirmPasswordRegister.text),
-        //            "location": countryPicker,
-        //            "gender": genderRegister
-        //        ]
-        
-        var gender = ""
-        if (genderRegister.selectedSegmentIndex == 0) {
-            gender = "male"
+        if (nameRegister.text == "" || emailRegister.text == "" || passwordRegister.text == "" || confirmPasswordRegister.text == "") {
+            
+            let alert = UIAlertController(title: "Error", message: "Please fill all the required fields!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
+        
         else {
-            gender = "female"
-        }
-        
-        let parameters: Parameters = [
-            "name" : nameRegister.text!,
-            "email" : emailRegister.text!,
-            "password" : passwordRegister.text!,
-            "password_confirmation" : confirmPasswordRegister.text!,
-            "gender" : gender,
-            "location" : selectedCountry
-        ]
-        print(parameters)
-        
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/register", method: .post, parameters: parameters).responseJSON { response in
-            let data = response.result.value
-            let json = JSON(data!)
+            if (passwordRegister.text != confirmPasswordRegister.text) {
+                let alert = UIAlertController(title: "Error", message: "Password and confirm password don't match!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
             
-            print(data)
-            print(json)
-            print("\(json["id"])")
-            let idUser = "\(json["id"])"
-            
-            if (json["error"] != JSON.null) {
-                print("c'è un errore")
-            } else {
-                print("Tutto a posto")
+            else {
+
+                self.dismiss(animated: true, completion: nil)
                 
-                let parametersForToken : Parameters = [
-                    "grant_type" : "password",
-                    "client_id": 1,
-                    "client_secret": "i7q4XrVF4RZD7kaHuxsLBFSd33HXijhCc0wouY7Z",
-                    "username": self.emailRegister.text!,
-                    "password": self.passwordRegister.text!,
-                    "scope": "*"
+                var gender = ""
+                if (genderRegister.selectedSegmentIndex == 0) {
+                    gender = "male"
+                }
+                
+                else {
+                    gender = "female"
+                }
+                
+                let parameters: Parameters = [
+                    "name" : nameRegister.text!,
+                    "email" : emailRegister.text!,
+                    "password" : passwordRegister.text!,
+                    "password_confirmation" : confirmPasswordRegister.text!,
+                    "gender" : gender,
+                    "location" : selectedCountry
                 ]
+                print(parameters)
                 
-                print(parametersForToken)
-                JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/oauth/token", method: .post, parameters: parametersForToken).responseJSON { response in
+                Alamofire.request("http://timelife.test/api/register", method: .post, parameters: parameters).responseJSON { response in
                     let data = response.result.value
                     let json = JSON(data!)
-                    let defaults = UserDefaults.standard
+                    
+                    print(data)
                     print(json)
-                    defaults.set("\(json[0]["access_token"])", forKey: "token")
-                    print("\(json[0]["access_token"])" + " ciaomamma")
-                    defaults.set("\(json[0]["id"])", forKey: "userId")
-                    self.performSegue(withIdentifier: "goToHome", sender: nil)
+                    print("\(json["id"])")
+                    let idUser = "\(json["id"])"
+                    
+                    if (json["error"] != JSON.null) {
+                        print("ERRORE NELLA COMPILAZIONE DEL REGISTER")
+                        
+                    } else {
+                        print("COMPILAZIONE DEL REGISTER ANDATA A BUON FINE")
+                        
+                        let parametersForToken : Parameters = [
+                            "grant_type" : "password",
+                            "client_id": 1,
+                            "client_secret": "i7q4XrVF4RZD7kaHuxsLBFSd33HXijhCc0wouY7Z",
+                            "username": self.emailRegister.text!,
+                            "password": self.passwordRegister.text!,
+                            "scope": "*"
+                        ]
+                        print(parametersForToken)
+                        Alamofire.request("http://timelife.test/api/oauth/token", method: .post, parameters: parametersForToken).responseJSON { response in
+                            let data = response.result.value
+                            let json = JSON(data!)
+                            let defaults = UserDefaults.standard
+                            print(json)
+                            defaults.set("\(json[0]["access_token"])", forKey: "token")
+                            print("\(json[0]["access_token"])" + " TOKEN GENERATO DAL REGISTER")
+                            defaults.set("\(json[0]["id"])", forKey: "userId")
+                            self.performSegue(withIdentifier: "goToHome", sender: nil)
+                    }
+                }
             }
         }
     }
 }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -62,9 +62,9 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print("sto salvando il testo")
         print(saveStory!)
         
-        print("sto salvando il mood: " + moodSelection!)
-        
+        //print("sto salvando il mood: " + moodSelection!)
         sendMedia()
+        
         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
     
@@ -104,6 +104,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         addImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         addImage.backgroundColor = UIColor.clear
         addImage.contentMode = UIViewContentMode.scaleAspectFill
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -114,7 +115,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func sendMedia() {
-        
+        print("sono dentrooooooooooooooooooooo")
         let token = carlo.object(forKey: "token") as? String
         
         let headers : HTTPHeaders = [
@@ -123,7 +124,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         ]
         
         let parameters : Parameters = [
-            "calendar_id": number,
             "mood": self.moodSelection!,
             "title": self.addTitle.text!,
             "body": self.addStory.text!,
@@ -139,18 +139,21 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         print("questo è il mood che viene salvato: " + "\(String(describing: parameters["mood"]))")
         
         let data = MultipartFormData()
+      
         
+        print("sono il data ", data)
 
-        func upload(sender: AnyObject) {
+            print("QUAQUARAQUa")
             if let image = addImage.image {
+                print("ALMENO QUI")
                 let imageData = UIImageJPEGRepresentation(image, 1.0)
                 
-                let urlString = "https://timelifeweb.test/api/media/"
+                let urlString = "http://timelife.test/api/media/" + number;
                 let session = URLSession(configuration: URLSessionConfiguration.default)
                 
                 let mutableURLRequest = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
                 
-                mutableURLRequest.httpMethod = "POST"
+                mutableURLRequest.httpMethod = "GET"
                 
                 let boundaryConstant = "----------------12345";
                 let contentType = "multipart/form-data;boundary=" + boundaryConstant
@@ -171,13 +174,19 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 
                 let task = session.dataTask(with: mutableURLRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
                     if error == nil {
-                        // Image uploaded
+                        print("sono nell'if")
+                        print(response)
+                    }
+                    else {
+                        print("sono nell'else")
+                        print(parameters)
+                        print(response)
+                        print(error)
                     }
                 })
                 
                 task.resume()
                 
-            }
             
         }
 

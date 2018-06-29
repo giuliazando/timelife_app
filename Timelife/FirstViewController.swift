@@ -43,7 +43,8 @@ class FirstViewController: UIViewController {
             let userId = defaults.string(forKey: "userId")
             print(userId, "sono l'userId")
             
-            JsonManager.sharedInstance.manager.request("http://timelifeweb.test/api/calendar/" + userId!, headers: headers).responseJSON { response in
+            Alamofire.request("http://timelife.test/api/calendar/" + userId!, method: .get, headers: headers).responseJSON { response in
+                print(response)
                 let data = response.result.value
                 print(data!)
                 self.json = JSON(data!)
@@ -88,7 +89,7 @@ extension FirstViewController : UICollectionViewDataSource
         if (newCount == 0) {
             newCount = 1
         }
-        print(newCount, "sono il new count")
+        print("NEW COUNT: ", newCount)
 
         return newCount
     }
@@ -148,9 +149,7 @@ extension FirstViewController : UICollectionViewDataSource
             for i in 0..<json[indexPath.row]["medias"].count {
                 fullMood = fullMood + json[indexPath.row]["medias"][i]["mood"].stringValue
             }
-            
-            print(fullMood)
-            print("sono il dulllllllll mooood")
+            print("STO SOMMANDO I MOOD")
             
             var imagename = ""
             
@@ -179,6 +178,7 @@ extension FirstViewController : UICollectionViewDataSource
                 imagename = "empty"
             }
             cell.ImageView.image = UIImage(named: imagename)
+            print("SONO IL MOOD: ", fullMood)
         }
         return cell
     }
@@ -199,7 +199,7 @@ extension FirstViewController : UICollectionViewDataSource
         if  let itemIndex = collectionView.indexPathsForSelectedItems?.first?.item {
             let selectedItem = self.json[itemIndex]["id"]
             view.number = "\(selectedItem)"
-            print(self.json[itemIndex]["id"], "SONO UN ID BELLISSIMOOOOOO")
+            print("SONO L'ID_CALENDAR: ", self.json[itemIndex]["id"])
             }
         }
     }

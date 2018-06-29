@@ -18,6 +18,7 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
      var json = JSON()
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    
   
     var photoTitle2 = Array<String>()
     var photoText2 = Array<String>()
@@ -32,8 +33,8 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         super.viewDidLoad()
         print("Sono entrato nei media")
         
-        print(number)
-        print(date, "hyeohwfioq")
+        print(number, "SONO NUMBER" )
+        print(date, "SONO DATE")
         
         let token = carlo.object(forKey: "token") as? String
         
@@ -45,10 +46,10 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         let pippo = UserDefaults.standard.string(forKey: "calendarId")
 
         
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/allmedia/" + number, headers:headers).responseJSON{response in
+        Alamofire.request("http://timelife.test/api/allmedia/" + number, headers:headers).responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
-            print(pippo)
+            print(pippo, "SONO PIPPO")
             
             let data = response.result.value
             let json = JSON(data!)

@@ -439,7 +439,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yK7-Aw-fCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EtB-Gm-QQi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="857"/>
+            <point key="canvasLocation" x="-692" y="894"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="0fq-zW-W0k">
@@ -810,6 +810,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnRegister:" destination="DRX-v0-DW1" eventType="touchUpInside" id="vcm-dr-6Zs"/>
+                                    <segue destination="7eU-jv-C47" kind="show" identifier="goToHome" id="yEP-xt-2bY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23G-ys-Sxi">
@@ -851,7 +852,6 @@
                         <outlet property="genderRegister" destination="mzf-y5-3aF" id="P3A-QZ-hCb"/>
                         <outlet property="nameRegister" destination="Smq-0h-CVk" id="YFC-Rz-Uc1"/>
                         <outlet property="passwordRegister" destination="ndJ-RB-BkF" id="OL2-3T-WhS"/>
-                        <segue destination="7eU-jv-C47" kind="show" identifier="goToHome" id="lWy-mQ-32t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e2-5m-na6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -872,6 +872,6 @@
         <image name="sfondo_login" width="1080" height="1920"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lWy-mQ-32t"/>
+        <segue reference="yEP-xt-2bY"/>
     </inferredMetricsTieBreakers>
 </document>

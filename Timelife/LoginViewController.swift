@@ -30,37 +30,46 @@ class LoginViewController: UIViewController  {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        print("il pulsante funziona")
-        let parameters : Parameters = [
-            "grant_type" : "password",
-            "client_id": 1,
-            "client_secret": "i7q4XrVF4RZD7kaHuxsLBFSd33HXijhCc0wouY7Z",
-            "username": addEmail.text!,
-            "password": addPassword.text!,
-            "scope": "*"
-        ]
-        
-        print(addEmail)
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/oauth/token", method: .post, parameters: parameters).responseJSON { response in
-            let data = response.result.value
-            let json = JSON(data!)
-            if(json["message"] == JSON.null) {
-                
-                let defaults = UserDefaults.standard
+        if (addEmail.text == "" || addPassword.text == "") {
+            
+            let alert = UIAlertController(title: "Error", message: "Please fill all the required fields!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))            
+            self.present(alert, animated: true)
+        }
+            
+        else {
+            print("il pulsante funziona")
+            let parameters : Parameters = [
+                "grant_type" : "password",
+                "client_id": 1,
+                "client_secret": "i7q4XrVF4RZD7kaHuxsLBFSd33HXijhCc0wouY7Z",
+                "username": addEmail.text!,
+                "password": addPassword.text!,
+                "scope": "*"
+            ]
+            
+            print(addEmail)
+            Alamofire.request("http://timelife.test/api/oauth/token", method: .post, parameters: parameters).responseJSON { response in
+                let data = response.result.value
+                let json = JSON(data!)
+                if(json["message"] == JSON.null) {
+                    
+                    let defaults = UserDefaults.standard
 
-                defaults.set("\(json[0]["access_token"])", forKey: "token")
-                print("\(json[0]["access_token"])" + " ciaomamma")
-                print(defaults.string(forKey: "token"))
-                
-                //mi serve per salvare id utente
-                defaults.set("\(json[0]["id"])", forKey: "userId")
-                print(defaults.string(forKey: "userId"))
-                self.dismiss(animated: true, completion: nil)
-            }
-            else {
-                print(json["message"])
-                print(self.addEmail.text!)
-                print(self.addPassword.text!)
+                    defaults.set("\(json[0]["access_token"])", forKey: "token")
+                    print("\(json[0]["access_token"])" + " ciaomamma")
+                    print(defaults.string(forKey: "token"))
+                    
+                    //mi serve per salvare id utente
+                    defaults.set("\(json[0]["id"])", forKey: "userId")
+                    print(defaults.string(forKey: "userId"))
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else {
+                    print(json["message"])
+                    print(self.addEmail.text!)
+                    print(self.addPassword.text!)
+                }
             }
         }
     }

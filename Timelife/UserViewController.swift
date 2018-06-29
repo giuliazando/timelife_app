@@ -31,7 +31,7 @@ class UserViewController: UIViewController {
         
         let userId = UserDefaults.standard.string(forKey: "userId")
         
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/user/" + userId!, headers: headers).responseJSON{response in
+        Alamofire.request("http://timelife.test/api/user/" + userId!, headers: headers).responseJSON{response in
             print(response.request as Any)
             print(response.response as Any)
             print(userId)

@@ -32,7 +32,7 @@ class DateViewController: UIViewController {
             "calendar_date" : dataText.text
         ]
 
-        JsonManager.sharedInstance.manager.request("https://timelifeweb.test/api/calendar/" + userId!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON {
+        Alamofire.request("http://timelife.test/api/calendar/" + userId!, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
             print(response)
             switch response.result {
