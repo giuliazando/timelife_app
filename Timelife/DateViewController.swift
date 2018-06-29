@@ -42,11 +42,9 @@ class DateViewController: UIViewController {
                 print(response)
                 break
             case .failure(let error):
-                print("voglio morire")
                 print(error)
             }
         }
-        
     }
     
     @IBAction func pickerDataAction(_ sender: Any) {
@@ -98,5 +96,4 @@ class DateViewController: UIViewController {
     @IBAction func backDate(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

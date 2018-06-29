@@ -23,7 +23,6 @@ class FirstViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        print("SONO ENTRATA NEL viewDidAppear ")
         super.viewDidAppear(true)
         print(defaults.string(forKey: "token"))
 //        self.defaults.set(nil, forKey: "token")
@@ -41,7 +40,7 @@ class FirstViewController: UIViewController {
             ]
             
             let userId = defaults.string(forKey: "userId")
-            print(userId, "sono l'userId")
+            print("Sono l'userId: ", userId)
             
             Alamofire.request("http://timelife.test/api/calendar/" + userId!, method: .get, headers: headers).responseJSON { response in
                 print(response)
@@ -58,8 +57,6 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("Sono nel FirstController")
         
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScaling)
@@ -162,8 +159,7 @@ extension FirstViewController : UICollectionViewDataSource
                 
             case "love","lovelove","lovelovelove":
                 imagename = "love"
-                
-            case "lovegood","goodlove","lovelovegood","goodgoodlove","lovegoodlove","goodlovelove","goodlovegood","goodgoodlove","lovegoodgood":
+        case"lovegood","goodlove","lovelovegood","goodgoodlove","lovegoodlove","goodlovelove","goodlovegood","goodgoodlove","lovegoodgood":
                 imagename = "lovegood"
                 
             case "lovebad","badlove","badbadlove","lovelovebad","badlovebad","lovebadlove","lovebadbad","badlovelove":
@@ -191,14 +187,14 @@ extension FirstViewController : UICollectionViewDataSource
         
     }
     
-    //questa funzione serve per capire l'id_calendar corrispondente alla card selezionata dal carosello.
+    //questa funzione serve per capire qual è l'id_calendar corrispondente alla card selezionata dal carosello.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "saveIdCalendar") {
             let view = segue.destination as! PhotoViewController
             
         if  let itemIndex = collectionView.indexPathsForSelectedItems?.first?.item {
             let selectedItem = self.json[itemIndex]["id"]
-            view.number = "\(selectedItem)"
+            view.calendarId = "\(selectedItem)"
             print("SONO L'ID_CALENDAR: ", self.json[itemIndex]["id"])
             }
         }
