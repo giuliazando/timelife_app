@@ -20,9 +20,12 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var loveButton: UIButton!
     @IBOutlet weak var badButton: UIButton!
     
+    let defaultsToken = UserDefaults.standard
     var moodSelection: String?
-    
-    let carlo = UserDefaults.standard
+    var saveTitle: String?
+    var saveStory: String?
+    var calendarId = ""
+    var date = ""
 
     @IBAction func goodButton(_ sender: Any) {
         loveButton.alpha = 0.3
@@ -36,7 +39,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         badButton.alpha = 0.3
         loveButton.alpha = 1
         moodSelection = "love"
-
     }
     
     @IBAction func badButton(_ sender: Any) {
@@ -44,50 +46,39 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         goodButton.alpha = 0.3
         badButton.alpha = 1
         moodSelection = "bad"
-
     }
     
     @IBAction func backToDate(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    var saveTitle: String?
-    var saveStory: String?
-    
     @IBAction func saveDiaryDay(_ sender: Any) {
-        if (addTitle.text == "" || addStory.text == "") {
-            
+        if (addTitle.text == "" || addStory.text == "" || moodSelection == nil) {
             let alert = UIAlertController(title: "Error", message: "Please fill all the required fields!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+        else {
+            sendMedia()
+            saveTitle = addTitle.text
+            print("sto salvando il titolo")
+            print(saveTitle!)
+            
+            saveStory = addStory.text
+            print("sto salvando il testo")
+            print(saveStory!)
 
-        saveTitle = addTitle.text
-        print("sto salvando")
-        print(saveTitle!)
-        
-        saveStory = addStory.text
-        print("sto salvando il testo")
-        print(saveStory!)
-        
-        //print("sto salvando il mood: " + moodSelection!)
-        sendMedia()
-        
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+            self.presentingViewController?.dismiss(animated: true)
+
+            //self.dismiss(animated: true, completion: nil)
+        }
     }
-    
-    var calendarId = ""
-    var date = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Salvo la data")
-        
         // Do any additional setup after loading the view.
-        
         setupImagePickerButton()
-        
         addStory.layer.masksToBounds = true
         addStory.layer.cornerRadius = 10
     }
@@ -97,7 +88,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         chooseImage.addTarget(self, action: #selector(ThirdViewController.displayImagePickerButtonTapped(_:)), for: .touchUpInside)
         self.view.addSubview(chooseImage)
         
-        
     }
     @objc func displayImagePickerButtonTapped(_ sender:UIButton!) {
         
@@ -106,7 +96,6 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         myPickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(myPickerController, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
@@ -118,33 +107,31 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func sendMedia() {
+    
         print("Sono entrato nella funzione sendMedia")
-        let token = carlo.object(forKey: "token") as? String
+        let token = defaultsToken.object(forKey: "token") as? String
         
         let headers : HTTPHeaders = [
             "Accept": "application/json",
             "Authorization": "Bearer \(token ?? "")"
         ]
-        
         let parameters : Parameters = [
             "mood": self.moodSelection!,
             "title": self.addTitle.text!,
             "body": self.addStory.text!,
             "type": "photo",
-            "date": "1983-11-29 00:00:00",
+            "date": date,
             "mediaUrl": "https://cdn.modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg"
         ]
         print("SONO IL CALENDAR ID: ", calendarId)
         
-        
-       Alamofire.request("http://timelife.test/api/media/" + calendarId, method: .post, parameters: parameters).responseJSON { response in
+        Alamofire.request("http://timelife.test/api/media/" + calendarId, method: .post, parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let value):
                 print("sono nel success")

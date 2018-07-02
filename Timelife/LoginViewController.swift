@@ -15,12 +15,12 @@ class LoginViewController: UIViewController  {
     @IBOutlet weak var addEmail: UITextField!
     @IBOutlet weak var addPassword: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        addPassword.isSecureTextEntry = true
         
+        let img = UIImage(named: "sfondo_login")
+        view.layer.contents = img?.cgImage
+        addPassword.isSecureTextEntry = true
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +31,6 @@ class LoginViewController: UIViewController  {
     
     @IBAction func loginButton(_ sender: Any) {
         if (addEmail.text == "" || addPassword.text == "") {
-            
             let alert = UIAlertController(title: "Error", message: "Please fill all the required fields!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))            
             self.present(alert, animated: true)
@@ -49,13 +48,12 @@ class LoginViewController: UIViewController  {
             ]
             
             print(addEmail)
+       
             Alamofire.request("http://timelife.test/api/oauth/token", method: .post, parameters: parameters).responseJSON { response in
                 let data = response.result.value
-                let json = JSON(data!)
+                let json = JSON(data!) 
                 if(json["message"] == JSON.null) {
-                    
                     let defaults = UserDefaults.standard
-
                     defaults.set("\(json[0]["access_token"])", forKey: "token")
                     print("\(json[0]["access_token"])" + " ciaomamma")
                     print(defaults.string(forKey: "token"))

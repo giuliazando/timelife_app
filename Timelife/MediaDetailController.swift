@@ -12,8 +12,27 @@ import SwiftyJSON
 
 class MediaDetailController: UIViewController {
     
+    var idMedia = ""
+    
     @IBAction func backToPhotoView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func deleteBtn(_ sender: Any) {
+        print("premo il bottone di delete")
+        Alamofire.request("http://timelife.test/api/media/" + idMedia, method: .delete).responseJSON { response in
+                if (response.result.isSuccess) {
+                    print("sono nel success del delete")
+                    self.dismiss(animated: true, completion: nil)
+                }
+                    
+                else {
+                    print("sono nel failure del delete")
+                    let alert = UIAlertController(title: "Error", message: "Connection error, please retry.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+            }
+        }
     }
     
     @IBOutlet weak var titleMedia: UILabel!
@@ -21,15 +40,14 @@ class MediaDetailController: UIViewController {
     @IBOutlet weak var imegeMoodMedia: UIImageView!
     @IBOutlet weak var photoMedia: UIImageView!
     
-    let carlo = UserDefaults.standard
-    var idMedia = ""
-
+    let defaultsToken = UserDefaults.standard
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         print("sono IDMEDIA: ", idMedia)
 
         
-        let token = carlo.object(forKey: "token") as? String
+        let token = defaultsToken.object(forKey: "token") as? String
         
         let headers:HTTPHeaders = [
             "Accept": "application/json",
@@ -88,13 +106,12 @@ class MediaDetailController: UIViewController {
             self.photoMedia.image = UIImage(named: imagePhoto )
         }
         
+        
+        
         bodyMedia.layer.masksToBounds = true
         bodyMedia.layer.cornerRadius = 10
 
-        
         titleMedia.layer.masksToBounds = true
         titleMedia.layer.cornerRadius = 10
-        
-        
     }
 }

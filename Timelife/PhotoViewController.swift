@@ -17,30 +17,36 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
     var json = JSON()
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet weak var plusBtn: UIButton!
     
-  
     var photoTitle2 = Array<String>()
     var photoText2 = Array<String>()
     var mood = Array<String>()
     var image = ""
     let defaults = UserDefaults.standard
-    let carlo = UserDefaults.standard
+    let defaultsToken = UserDefaults.standard
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print("PhotoViewController: parte il ViewDidAppear")
+        //self.photoCollectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Sono entrato nei media")
         
         print(calendarId, "SONO NUMBER" )
         print(date, "SONO DATE")
-        
-        let token = carlo.object(forKey: "token") as? String
-        
+
+        let token = defaultsToken.object(forKey: "token") as? String
         let headers:HTTPHeaders = [
             "Accept": "application/json",
             "Authorization": "Bearer \(token ?? "")"
         ]
         
-        let pippo = UserDefaults.standard.string(forKey: "calendarId")
+        let defaults = UserDefaults.standard.string(forKey: "calendarId")
 
         Alamofire.request("http://timelife.test/api/allmedia/" + calendarId, headers:headers).responseJSON{response in
             print(response.request as Any)
@@ -83,6 +89,10 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var newPhotoCount = photoTitle2.count
+        
+        if (newPhotoCount > 2) {
+            plusBtn.isHidden = true
+        }
         return photoTitle2.count //quante celle vogliamo
     }
     
@@ -91,7 +101,6 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         cell.photoTitle.text = photoTitle2[indexPath.row] //incrementa gli elementi di photoTitle
         cell.photoText.text = photoText2[indexPath.row]
-        
         print(indexPath.row)
        
         //This creates the shadows and modifies the cards a little bit
@@ -123,7 +132,6 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
             self.image = "addImage"
         }
         cell.image.image = UIImage(named: image)
-        
         cell.contentView.layer.masksToBounds = false
         cell.layer.shadowColor = UIColor.gray.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
@@ -158,5 +166,3 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-

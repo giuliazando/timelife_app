@@ -11,16 +11,13 @@ import Alamofire
 
 class DateViewController: UIViewController {
 
-
     @IBOutlet weak var dataText: UILabel!
     @IBOutlet weak var selectDate: UIDatePicker!
-  
     @IBAction func chooseBtn(_ sender: Any) {
         
         let userId = UserDefaults.standard.string(forKey: "userId")
-        let carlo = UserDefaults.standard
-        
-        let token = carlo.object(forKey: "token") as? String
+        let defaultsToken = UserDefaults.standard
+        let token = defaultsToken.object(forKey: "token") as? String
 
         let headers : HTTPHeaders = [
             "Accept": "application/json",
@@ -75,11 +72,8 @@ class DateViewController: UIViewController {
         var giornodelmese: Int!
         var mesedellanno: Int!
         var anno: Int!
-        
-        
         let calendar = Calendar.current
         let components = (calendar as NSCalendar).components([.day, .month, .year] , from: selectDate.date)
-        
         giornodelmese = components.day
         mesedellanno = components.month
         anno = components.year

@@ -12,7 +12,6 @@ import SwiftyJSON
 
 class FirstViewController: UIViewController {
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var convertedDate = ""
@@ -21,16 +20,15 @@ class FirstViewController: UIViewController {
     var json = JSON()
     let defaults = UserDefaults.standard
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         print(defaults.string(forKey: "token"))
 //        self.defaults.set(nil, forKey: "token")
         if((defaults.string(forKey: "token")) == nil) {
-            print("foj")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "loginView")
             self.present(controller, animated: true, completion: nil)
+            
         } else {
             let token = defaults.object(forKey: "token") as? String
             
@@ -64,7 +62,6 @@ class FirstViewController: UIViewController {
         
         let insetX = (view.bounds.width - cellWidth) / 10.0
         let insetY = (view.bounds.height - cellHeight) / 10.0
-        
         
         let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
@@ -138,8 +135,6 @@ extension FirstViewController : UICollectionViewDataSource
                 cell.MonthName.text = dateFinal
                 print("data cambiata: " + dateFinal)
                 print(dateFinal, "sono la DATAAAAAAA")
-            
-            
                 print(dateFinal)
             }
         
@@ -184,7 +179,6 @@ extension FirstViewController : UICollectionViewDataSource
     {
         self.performSegue(withIdentifier: "saveIdCalendar", sender: nil)
         print("immagine \(indexPath.row)")
-        
     }
     
     //questa funzione serve per capire qual è l'id_calendar corrispondente alla card selezionata dal carosello.

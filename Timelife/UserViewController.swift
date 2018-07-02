@@ -17,12 +17,18 @@ class UserViewController: UIViewController {
     @IBOutlet weak var countryUser: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     
-    let carlo = UserDefaults.standard
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let token = carlo.object(forKey: "token") as? String
+        let defaultsToken = UserDefaults.standard
+
+        let img = UIImage(named: "sfondo_utente")
+        view.layer.contents = img?.cgImage
+        
+//        var img = UIImage(named: "sfondo_login")
+//        view.layer.contents = img?.cgImage
+        
+        let token = defaultsToken.object(forKey: "token") as? String
         
         let headers:HTTPHeaders = [
             "Accept": "application/json",
@@ -53,7 +59,6 @@ class UserViewController: UIViewController {
             print(country)
         }
         
-        
         //self.userImage.layer.cornerRadius = self.userImage.frame.size.width / 2
         self.userImage.layer.cornerRadius = 50
         self.userImage.clipsToBounds = true
@@ -73,11 +78,7 @@ class UserViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
     @IBAction func backToInterest(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
-    
 }
