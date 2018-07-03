@@ -1,10 +1,12 @@
 PODS:
   - Alamofire (4.7.2)
+  - Kingfisher (4.7.0)
   - SwiftDate (4.4.2)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher (~> 4.0)
   - SwiftDate
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -19,9 +21,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 8745653d5dfcb2f40d562af3ca922796ab85c518
+PODFILE CHECKSUM: 26dacbf339105f88b7c784525bea99175cbe346a
 
 COCOAPODS: 1.4.0

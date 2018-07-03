@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 class MediaDetailController: UIViewController {
     
@@ -58,10 +59,10 @@ class MediaDetailController: UIViewController {
             print(response.request as Any)
             print(response.response as Any)
 
-
             let data = response.result.value
             let json = JSON(data!)
-            
+            print(json)
+
             let title = "\(json["data"]["title"])"
             self.titleMedia.text = title
             print(title)
@@ -69,44 +70,50 @@ class MediaDetailController: UIViewController {
             let body = "\(json["data"]["body"])"
             self.bodyMedia.text = body
             print(body)
+
+            let urlModif = URL(string: "\(json["data"]["mediaUrl"])")
+            print(json["data"]["mediaUrl"])
+            self.photoMedia.kf.setImage(with: urlModif)
+            
+            
+            
             
             var moodMedia = "\(json["data"]["mood"])"
             var moodImage = ""
             var imagePhoto = ""
+            print("SONO IL moodMedia: ", moodMedia)
             
             //COMMENTO MOMENTANEO IN PREVISIONE ALL'IMPLEMENTAZIONE DELLA VISUALIZZAZIONE E SALVATAGGIO DELLE FOTO
-//            switch moodMedia {
-//            case "good":
-//                moodImage = "mood_good"
-//
-//            case "bad":
-//                moodImage = "mood_bad"
-//
-//            case "love":
-//                moodImage = "mood_love"
-//
-//            default:
-//                moodImage = "empty"
-//            }
-            
             switch moodMedia {
             case "good":
-                imagePhoto = "mageDiProvaGood"
-                
+                moodImage = "mood_good"
+
             case "bad":
-                imagePhoto = "mageDiProvaBad"
-                
+                moodImage = "mood_bad"
+
             case "love":
-                imagePhoto = "mageDiProvaLove"
-                
+                moodImage = "mood_love"
+
             default:
-                imagePhoto = "addImage"
+                moodImage = "empty"
             }
+            
+//            switch moodMedia {
+//            case "good":
+//                imagePhoto = "mageDiProvaGood"
+//
+//            case "bad":
+//                imagePhoto = "mageDiProvaBad"
+//
+//            case "love":
+//                imagePhoto = "mageDiProvaLove"
+//
+//            default:
+//                imagePhoto = "addImage"
+//            }
             self.imegeMoodMedia.image = UIImage(named: moodImage )
-            self.photoMedia.image = UIImage(named: imagePhoto )
+            //self.photoMedia.image = UIImage(named: imagePhoto )
         }
-        
-        
         
         bodyMedia.layer.masksToBounds = true
         bodyMedia.layer.cornerRadius = 10

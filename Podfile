@@ -6,6 +6,7 @@ target 'Timelife' do
     pod 'Alamofire'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'SwiftDate' 
+pod 'Kingfisher', '~> 4.0'
 end
 
 

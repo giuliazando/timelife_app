@@ -53,7 +53,7 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func saveDiaryDay(_ sender: Any) {
-        if (addTitle.text == "" || addStory.text == "" || moodSelection == nil) {
+        if (addTitle.text == "" || addStory.text == "" || moodSelection == nil || addImage.image == UIImage(named: "addImage")) {
             let alert = UIAlertController(title: "Error", message: "Please fill all the required fields!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
@@ -68,7 +68,8 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
             print("sto salvando il testo")
             print(saveStory!)
 
-            self.presentingViewController?.dismiss(animated: true)
+            
+            
 
             //self.dismiss(animated: true, completion: nil)
         }
@@ -131,19 +132,19 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         ]
         print("SONO IL CALENDAR ID: ", calendarId)
         
-        Alamofire.request("http://timelife.test/api/media/" + calendarId, method: .post, parameters: parameters).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                print("sono nel success")
-                let json = JSON(value)
-                print(json)
-            case .failure(let error):
-                print(error)
-                print(parameters)
-                print("http://timelife.test/api/media/" + self.calendarId)
-            }
-        }
-        
+//        Alamofire.request("http://timelife.test/api/media/" + calendarId, method: .post, parameters: parameters).responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                print("sono nel success")
+//                let json = JSON(value)
+//                print(json)
+//            case .failure(let error):
+//                print(error)
+//                print(parameters)
+//                print("http://timelife.test/api/media/" + self.calendarId)
+//            }
+//        }
+//        
         //let urlString = "https://timelifeweb.test/api/media"
         
         print("questo è il mood che viene salvato: " + "\(String(describing: parameters["mood"]))")
@@ -156,54 +157,83 @@ class ThirdViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         //CHIAMATA POST MultipartFormData PER IL SALVATAGGIO DELLE IMMAGINI NELL'APP
         
-//            if let image = addImage.image {
-//                print("ALMENO QUI")
-//                let imageData = UIImageJPEGRepresentation(image, 1.0)
-//
-//                let urlString = "http://timelife.test/api/media/" + calendarId;
-//                print("http://timelife.test/api/media/" + self.calendarId)
-//
-//                let session = URLSession(configuration: URLSessionConfiguration.default)
-//
-//                let mutableURLRequest = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
-//
-//                mutableURLRequest.httpMethod = "GET"
-//
-//                let boundaryConstant = "----------------12345";
-//                let contentType = "multipart/form-data;boundary=" + boundaryConstant
-//                mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
-//
-//                // create upload data to send
-//                let uploadData = NSMutableData()
-//
-//                // add image
-//                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
-//                uploadData.append("Content-Disposition: form-data; name=\"picture\"; filename=\"file.png\"\r\n".data(using: String.Encoding.utf8)!)
-//                uploadData.append("Content-Type: image/png\r\n\r\n".data(using: String.Encoding.utf8)!)
-//                uploadData.append(imageData!)
-//                uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
-//
-//                mutableURLRequest.httpBody = uploadData as Data
-//                print("SMERALDOVERDE")
-//
-//                let task = session.dataTask(with: mutableURLRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
-//
-//                    print(response)
-//
-//                    if error == nil {
-//                        print("sono nell'if")
-//                        print(response)
-//                    }
-//                    else {
-//                        print("sono nell'else")
-//                        print(parameters)
-//                        print(response)
-//                        print(error)
-//                    }
-//                })
-//                print(task.state)
-//                print("sono task: ", task)
-//                task.resume()
-//        }
+            if let image = addImage.image {
+                print("riohgphàtrio", image)
+                let imageData = UIImageJPEGRepresentation(image, 0.3)
+
+                let urlString = "http://timelife.test/api/media/" + calendarId;
+
+                let session = URLSession(configuration: URLSessionConfiguration.default)
+
+                let mutableURLRequest = NSMutableURLRequest(url: NSURL(string: urlString)! as URL)
+
+                mutableURLRequest.httpMethod = "POST"
+
+                let boundaryConstant = "----------------12345";
+                let contentType = "multipart/form-data;boundary=" + boundaryConstant
+                mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
+                mutableURLRequest.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
+                
+                // create upload data to send
+                let uploadData = NSMutableData()
+
+                // add image
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"image\"; filename=\"file.png\"\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Type: image/png\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append(imageData!)
+                //uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+                
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"title\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append(self.addTitle.text!.data(using: String.Encoding.utf8)!)
+                //uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+                
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"body\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append(self.addStory.text!.data(using: String.Encoding.utf8)!)
+                //uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+                
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"mood\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append(self.moodSelection!.data(using: String.Encoding.utf8)!)
+                //uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+                
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"type\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("photo".data(using: String.Encoding.utf8)!)
+                //uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+                
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"date\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("2018-06-29 14:53:17".data(using: String.Encoding.utf8)!)
+                //uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+                
+                uploadData.append("\r\n--\(boundaryConstant)\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("Content-Disposition: form-data; name=\"mediaUrl\"\r\n\r\n".data(using: String.Encoding.utf8)!)
+                uploadData.append("ffgdfgdfgdfgdfgdsdf".data(using: String.Encoding.utf8)!)
+                uploadData.append("\r\n--\(boundaryConstant)--\r\n".data(using: String.Encoding.utf8)!)
+
+                mutableURLRequest.httpBody = uploadData as Data
+                
+                print("SMERALDOVERDE")
+                let urlImage = mutableURLRequest.httpBody!
+
+                let task = session.dataTask(with: mutableURLRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+                    if error == nil {
+                        print(response)
+                        let presentingView:PhotoViewController = self.presentingViewController as! PhotoViewController
+                        presentingView.load()
+                        self.dismiss(animated: true)
+                    }
+                    else {
+                        print("sono nell'else")
+                        print(parameters)
+                        print(response)
+                        print(error)
+                    }
+                })
+                task.resume()
+        }
     }
 }
